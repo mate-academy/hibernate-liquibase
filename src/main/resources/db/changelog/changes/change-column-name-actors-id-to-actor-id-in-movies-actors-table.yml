@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: change-column-name-actors-id-to-actor-id-in-movies-actors-table
+      author: IP
+      changes:
+        - renameColumn:
+            tableName: movies_actors
+            oldColumnName: actors_id
+            newColumnName: actor_id
