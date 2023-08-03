@@ -1,0 +1,1 @@
+ alter table movies_actors add constraint dawd foreign key (movie_id) references movies (id);
