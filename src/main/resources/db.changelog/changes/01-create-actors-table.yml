@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-authors-table
+      author: pochtalon
+      changes:
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constrains:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar
+                  constraint:
+                    nullable: false
+              - column:
+                  name: country_id
+                  type: bigint

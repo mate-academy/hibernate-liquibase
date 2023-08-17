@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies_actors-table
+      author: pochtalon
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constrains:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar
+                  constraint:
+                    nullable: false
