@@ -7,12 +7,12 @@ databaseChangeLog:
             tableName: movies_actors
             columns:
               - column:
-                  name: actors_id
+                  name: actor_id
                   type: bigint
-                  constrains:
+                  constraints:
                     nullable: false
               - column:
-                  name: movies_id
+                  name: movie_id
                   type: bigint
-                  constraint:
+                  constraints:
                     nullable: false

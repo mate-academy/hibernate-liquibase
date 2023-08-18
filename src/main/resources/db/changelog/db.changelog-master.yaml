@@ -1,6 +1,6 @@
 databaseChangeLog:
   - include:
-      file: /db/changeLog/changes/01-create-actors-table.yml
+      file: db/changeLog/changes/01-create-actors-table.yml
   - include:
       file: db/changelog/changes/02-create-countries-table.yml
   - include:

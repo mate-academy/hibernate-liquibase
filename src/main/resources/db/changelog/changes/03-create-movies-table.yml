@@ -10,11 +10,11 @@ databaseChangeLog:
                   name: id
                   type: bigint
                   autoIncrement: true
-                  constrains:
+                  constraints:
                     primaryKey: true
                     nullable: false
               - column:
                   name: title
-                  type: varchar
-                  constraint:
+                  type: varchar(255)
+                  constraints:
                     nullable: false
