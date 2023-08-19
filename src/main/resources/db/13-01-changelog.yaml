@@ -1,0 +1,113 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1691946222124-1
+      author: toxauz (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_actors
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: country_id
+                  type: BIGINT
+            tableName: actors
+  - changeSet:
+      id: 1691946222124-2
+      author: toxauz (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_countries
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+            tableName: countries
+  - changeSet:
+      id: 1691946222124-3
+      author: toxauz (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_movies
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+            tableName: movies
+  - changeSet:
+      id: 1691946222124-4
+      author: toxauz (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: actor_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: movie_id
+                  type: BIGINT
+            tableName: movies_actors
+  - changeSet:
+      id: 1691946222124-5
+      author: toxauz (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: country_id
+            baseTableName: actors
+            constraintName: FK_ACTORS_ON_COUNTRY
+            referencedColumnNames: id
+            referencedTableName: countries
+  - changeSet:
+      id: 1691946222124-6
+      author: toxauz (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: actor_id
+            baseTableName: movies_actors
+            constraintName: fk_movact_on_actor
+            referencedColumnNames: id
+            referencedTableName: actors
+  - changeSet:
+      id: 1691946222124-7
+      author: toxauz (generated)
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: movie_id
+            baseTableName: movies_actors
+            constraintName: fk_movact_on_movie
+            referencedColumnNames: id
+            referencedTableName: movies
+

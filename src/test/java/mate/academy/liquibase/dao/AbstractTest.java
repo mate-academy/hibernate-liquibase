@@ -125,7 +125,8 @@ public abstract class AbstractTest {
             try {
                 Connection connection = dataSource.getConnection();
                 DatabaseConnection liquibaseConnection = new JdbcConnection(connection);
-                Liquibase liquibase = new Liquibase("db/changelog/db.changelog-master.yaml", new ClassLoaderResourceAccessor(), liquibaseConnection);
+                Liquibase liquibase = new Liquibase(
+                        "db/changelog/db.changelog-master.yaml", new ClassLoaderResourceAccessor(), liquibaseConnection);
                 liquibase.update(new Contexts(), new LabelExpression());
             } catch (LiquibaseException | SQLException e) {
                 throw new RuntimeException("Failed to run liquibase", e);
