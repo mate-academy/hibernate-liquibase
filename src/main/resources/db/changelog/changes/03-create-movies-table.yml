@@ -16,5 +16,3 @@ databaseChangeLog:
               - column:
                   name: title
                   type: VARCHAR(255)
-                  constrains:
-                    nullable: false
