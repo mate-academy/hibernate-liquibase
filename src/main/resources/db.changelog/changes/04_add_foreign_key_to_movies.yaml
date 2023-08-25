@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 04_add_foreign_key_to_movies
+      author: ihor-kalaur
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            baseColumnNames: movie_id
+            referencedTableName: movies
+            referencedColumnNames: id
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            baseColumnNames: actor_id
+            referencedTableName: actors
+            referencedColumnNames: id
