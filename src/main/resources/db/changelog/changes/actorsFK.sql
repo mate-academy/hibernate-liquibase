@@ -1,0 +1,1 @@
+ alter table actors add constraint FK2yo5yhg5xhkxjsdqcmlk8qali foreign key (country_id) references countries;
