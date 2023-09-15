@@ -1,0 +1,20 @@
+databaseChangeLog:
+  -changeSet:
+    id: create-counties-table
+    author: Oksana Slovachevska
+    -changes:
+      -createTable:
+    tableName: countries
+columns:
+  -column:
+    name: id
+    type: bigint
+    autoincrement: true
+    constrains:
+      primaryKey: true
+    nullable: false
+    -column:
+      name: name
+      type: Varchar(255)
+      constrains:
+      nullable: false
