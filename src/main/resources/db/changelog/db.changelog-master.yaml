@@ -1,9 +1,9 @@
 databaseChangeLog:
   - include:
-      file: /db/changeLog/changes/create-actor-table.yml
+      file: /db/changelog/changes/create-actor-table.yml
   - include:
-      file: /db/changeLog/changes/create-country-table.yml
+      file: /db/changelog/changes/create-country-table.yml
   - include:
-      file: /db/changeLog/changes/create-movie-table.yml
+      file: /db/changelog/changes/create-movie-table.yml
   - include:
-      file: /db/changeLog/changes/create-movies-actors-table.yml
+      file: /db/changelog/changes/create-movies-actors-table.yml
