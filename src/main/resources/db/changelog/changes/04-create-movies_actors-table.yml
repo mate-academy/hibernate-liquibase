@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movie-table
+      author: mateacademy
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+
+
+
+
+
+
