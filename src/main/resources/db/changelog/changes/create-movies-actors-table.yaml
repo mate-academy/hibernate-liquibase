@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies-actors-table
+      author: liquibase-docs
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: true
+
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: true
+
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            baseColumnNames: actor_id
+            referencedTableName: actors
+            referencedColumnNames: id
+            constraintName: actor_key
+
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            baseColumnNames: movie_id
+            referencedTableName: movies
+            referencedColumnNames: id
+            constraintName: movie_key

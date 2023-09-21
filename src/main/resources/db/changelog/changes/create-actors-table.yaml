@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-actors-table
+      author: liquibase-docs
+      changes:
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: name
+                  type: varchar(45)
+
+              - column:
+                  name: country_id
+                  type: bigint
+
+        - addForeignKeyConstraint:
+            baseTableName: actors
+            baseColumnNames: country_id
+            referencedTableName: countries
+            referencedColumnNames: id
+            constraintName: country_key
