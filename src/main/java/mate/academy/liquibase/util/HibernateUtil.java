@@ -11,25 +11,18 @@ import liquibase.database.DatabaseFactory;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.resource.ClassLoaderResourceAccessor;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
-    private static final SessionFactory sessionFactory = buildSessionFactory();
+    private static final SessionFactory instance = initSessionFactory();
 
     public static SessionFactory getSessionFactory() {
-        return sessionFactory;
+        return instance;
     }
 
-    private static SessionFactory buildSessionFactory() {
+    public static SessionFactory initSessionFactory() {
         runLiquibaseUpdate();
-        Configuration configuration = new Configuration();
-        configuration.configure();
-
-        StandardServiceRegistryBuilder registryBuilder =
-                new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
-
-        return configuration.buildSessionFactory(registryBuilder.build());
+        return new Configuration().configure().buildSessionFactory();
     }
 
     private static void runLiquibaseUpdate() {
