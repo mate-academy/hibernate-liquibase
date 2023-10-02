@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-actors_movies-table
+      author: teract10s
+      changes:
+        - createTable:
+            tableName: actors_movies
+            columns:
+              - column:
+                  name: actor_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_movie_actor
+                    references: actor(id)
+              - column:
+                name: movie_id
+                type: UUID
+                constraints:
+                  nullable: false
+                  foreignKeyName: fk_actor_movie
+                  references: movie(id)
