@@ -19,9 +19,9 @@ databaseChangeLog:
                   constraints:
                     nullable: true
               - column:
-                  name: country
-                  type: UUID
+                  name: country_id
+                  type: bigint
                   constraints:
-                    nullable: false
+                    nullable: true
                     foreignKeyName: fk_actor_country
                     references: countries(id)
