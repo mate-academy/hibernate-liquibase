@@ -7,8 +7,20 @@ databaseChangeLog:
             tableName: movies_actors
             columns:
               - column:
-                  name: actor_id
+                  name: id
                   type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_movies_actors_movies
+                    references: movies(id)
               - column:
                   name: actor_id
                   type: bigint
+                  constraints:
+                    foreignKeyName: fk_movies_actors_actors
+                    references: actors(id)

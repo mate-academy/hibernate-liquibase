@@ -12,12 +12,9 @@ databaseChangeLog:
                   autoIncrement: true
                   constraints:
                     primaryKey: true
-                    nullable: false
               - column:
                   name: name
                   type: varchar(255)
-                  constraints:
-                    nullable: false
               - column:
                   name: country_id
                   type: bigint
