@@ -16,6 +16,8 @@ databaseChangeLog:
             - column:
                 name: title
                 type: varchar(255)
+                constraints:
+                  nullable: false
             - column:
                 name: actor
                 type: varchar(255)

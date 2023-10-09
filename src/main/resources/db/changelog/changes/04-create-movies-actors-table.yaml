@@ -4,7 +4,7 @@ databaseChangeLog:
       author: alex
       changes:
         - createTable:
-            tableName: movies actors
+            tableName: movies_actors
             columns:
               - column:
                   name: id
@@ -13,3 +13,11 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
                     nullable: false
+              - column:
+                  name: movie_id
+                  type: bigint
+              - column:
+                  name: actor_id
+                  type: bigint
+
+
