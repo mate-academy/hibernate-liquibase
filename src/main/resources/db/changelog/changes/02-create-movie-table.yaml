@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies-table
+      author: anastasiia
+      changes:
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: create-movies_actors-table
+      author: anastasiia
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_movies_actors_movies
+                    references: movies(id)
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_movies_actors_actors
+                    references: actors(id)
+
+
+  
