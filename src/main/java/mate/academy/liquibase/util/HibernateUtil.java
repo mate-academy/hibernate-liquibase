@@ -28,7 +28,7 @@ public class HibernateUtil {
     private static void runLiquibaseUpdate() {
         // You might need to adjust this depending on your setup
         String changelogFile = "db/changelog/db.changelog-master.yaml";
-        String liquibasePropertiesPath = "liquibase.properties";
+        String liquibasePropertiesPath = "db/changelog/liquibase.properties";
 
         Properties liquibaseProps = new Properties();
         try (InputStream input = HibernateUtil.class.getClassLoader()
