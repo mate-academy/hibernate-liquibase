@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: your_name
+      comment: Create Country table
+      createTable:
+        tableName: countries
+        columns:
+          - column:
+              name: id
+              type: bigint
+              autoIncrement: true
+              constraints:
+                primaryKey: true
+          - column:
+              name: name
+              type: varchar(255)
+          # Add more columns as needed
+  - changeSet:
+      id: 5
+      author: your_name
+      comment: Add country_id column to actors table
+      addColumn:
+        tableName: actors
+        columns:
+          - column:
+              name: country_id
+              type: bigint
+              constraints:
+                foreignKeyName: fk_actors_country
+                references: countries(id)
