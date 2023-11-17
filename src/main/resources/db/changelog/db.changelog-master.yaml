@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/country.yml
+  - include:
+      file: db/changelog/changes/actor.yml
+  - include:
+      file: db/changelog/changes/movies.yml
+  - include:
+      file: db/changelog/changes/add.yml
