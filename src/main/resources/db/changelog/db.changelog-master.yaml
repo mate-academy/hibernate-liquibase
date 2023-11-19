@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/01-create-table-actors.yaml
+  - include:
+      file: db/changelog/changes/02-create-table-countries.yaml
+  - include:
+      file: db/changelog/changes/03-create-table-movies.yaml
+  - include:
+      file: db/changelog/changes/04-create-table-movies_actors.yaml
+
+  - include:
+      file: db/changelog/changes/05-alter-table-actors-add-foreign-key-for-field-country_id.yaml
+  - include:
+      file: db/changelog/changes/06-alter-table-movies_actors-add-foreign-keys-for-fields-movie_id-and-actor_id.yaml
