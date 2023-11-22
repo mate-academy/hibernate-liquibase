@@ -4,7 +4,7 @@ databaseChangeLog:
       author: Layron
       changes:
         - createTable:
-            tableName: movies-actors
+            tableName: movies_actors
             columns:
               - column:
                   name: movie_id
