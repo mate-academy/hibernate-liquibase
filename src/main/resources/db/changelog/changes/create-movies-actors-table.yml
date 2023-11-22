@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+        id: init
+        author: root
+        changes:
+          - createTable:
+              tableName: movies_actors
+              columns:
+                - column:
+                    name: id
+                    type: bigint
+                    autoIncrement: true
+                    constraints:
+                      primaryKey: true
+                      nullable: false
+                - column:
+                    name: movie_id
+                    type: bigint
+                    constraints:
+                      nullable: false
+                - column:
+                    name: actor_id
+                    type: bigint
+                    constraints:
+                      nullable: false
+              primaryKey:
+                columnNames: id
+                foreignKeyConstraints:
+                  - foreignKeyName: fk_movies_actors_movie_id
+                    baseTableName: movies_actors
+                    baseColumnNames: movie_id
+                    referencedTableName: movie
+                    referencedColumnNames: id
+                    onDelete: CASCADE
