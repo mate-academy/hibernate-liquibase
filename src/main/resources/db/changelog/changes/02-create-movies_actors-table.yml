@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies_actors-table
+      author: mateacademy
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_movies_actors_movie
+                    references: movies(id)
+                    #onDelete: cascade
+                    nullable: false
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_movies_actors_actor
+                    references: actors(id)
+                    #onDelete: cascade
+                    nullable: false
