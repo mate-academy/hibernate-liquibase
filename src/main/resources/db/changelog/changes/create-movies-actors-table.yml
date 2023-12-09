@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: root
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: BIGINT
+                  constraints:
+                    foreignKey: true
+                    references: movies(id)
+                    foreignKeyName: fk_movies_actors_movie_id
+              - column:
+                  name: actor_id
+                  type: BIGINT
+                  constraints:
+                    foreignKey: true
+                    references: actors(id)
+                    foreignKeyName: fk_movies_actors_actor_id
+            constraints:
+              primaryKey: true
