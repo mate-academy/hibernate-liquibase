@@ -104,6 +104,14 @@
                         <encoding>${project.build.sourceEncoding}</encoding>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.liquibase</groupId>
+                    <artifactId>liquibase-maven-plugin</artifactId>
+                    <version>${liquibase.version}</version>
+                    <configuration>
+                        <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
