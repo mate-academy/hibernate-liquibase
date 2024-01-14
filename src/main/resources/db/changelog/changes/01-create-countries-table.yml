@@ -1,7 +1,7 @@
-databaseChangelog:
+databaseChangeLog:
   - changeSet:
       id: create-countries-table
-      author: VitaliiKazymyrovych
+      author: mateacademy
       changes:
         - createTable:
             tableName: countries
@@ -18,3 +18,6 @@ databaseChangelog:
                   type: varchar(255)
                   constraints:
                     nullable: false
+      rollback:
+        - dropTable:
+            tableName: countries

@@ -1,7 +1,7 @@
-databaseChangelog:
+databaseChangeLog:
   - changeSet:
       id: create-actors-table
-      author: VitaliiKazymyrovych
+      author: mateacademy
       changes:
         - createTable:
             tableName: actors
@@ -14,7 +14,7 @@ databaseChangelog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: title
+                  name: name
                   type: varchar(255)
                   constraints:
                     nullable: false
@@ -22,4 +22,9 @@ databaseChangelog:
                   name: country_id
                   type: bigint
                   constraints:
-                    nullable: false
+                    nullable: true
+                    foreignKeyName: fk_actors_country
+                    references: countries (id)
+      rollback:
+        - dropTable:
+            tableName: actors
