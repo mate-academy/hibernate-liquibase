@@ -23,20 +23,17 @@ public class Main {
 
         CountryService countryService = new CountryServiceImpl(
                 new CountryDaoImpl(sessionFactory));
-
-        ActorService actorService = new ActorServiceImpl(
-                new ActorDaoImpl(sessionFactory));
-
-        MovieService movieService = new MovieServiceImpl(
-                new MovieDaoImpl(sessionFactory));
-
         Country usa = new Country("USA");
         countryService.save(usa);
 
+        ActorService actorService = new ActorServiceImpl(
+                new ActorDaoImpl(sessionFactory));
         Actor vinDiesel = new Actor("Vin Diesel");
         vinDiesel.setCountry(usa);
         actorService.save(vinDiesel);
 
+        MovieService movieService = new MovieServiceImpl(
+                new MovieDaoImpl(sessionFactory));
         Movie fastAndFurious = new Movie("Fast and Furious");
         fastAndFurious.setActors(List.of(vinDiesel));
         movieService.save(fastAndFurious);
