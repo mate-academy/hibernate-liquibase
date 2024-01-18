@@ -1,7 +1,7 @@
 databaseChangeLog:
   - include:
-      file: /db/changelog/changes/changelog-country.yml
+      file: /db/changelog/changes/changelog-country.yaml
   - include:
-      file: /db/changelog/changes/changelog-actor.yml
+      file: /db/changelog/changes/changelog-actor.yaml
   - include:
-      file: /db/changelog/changes/changelog-movie.yml
+      file: /db/changelog/changes/changelog-movie.yaml
