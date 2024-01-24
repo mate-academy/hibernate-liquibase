@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: crate-movie-actor-table
+      author: laverandrii
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_movies
+                    references: movies(id)
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_actos
+                    references: actors(id)
