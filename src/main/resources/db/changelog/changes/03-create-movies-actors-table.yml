@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-actors-table
-      author: unknown
+      id: create-movie-table
+      author: khmil
       changes:
         - createTable:
-            tableName: actors
+            tableName: movies
             columns:
               - column:
                   name: id
@@ -14,8 +14,7 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: name
+                  name: title
                   type: varchar(255)
-              - column:
-                  name: country_id
-                  type: bigint
+                  constraints:
+                    nullable: false

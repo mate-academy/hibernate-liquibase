@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
-      id: create-countries-table
-      author: unknown
+      id: create-country-table
+      author: khmil
       changes:
         - createTable:
             tableName: countries
@@ -16,3 +16,5 @@ databaseChangeLog:
               - column:
                   name: name
                   type: varchar(255)
+                  constraints:
+                    nullable: false
