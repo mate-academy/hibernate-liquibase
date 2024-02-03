@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movie_actors-table
+      author: bohdan_kobylchak
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+              - column:
+                  name: actor_id
+                  type: bigint
