@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: create-movies-actors-table
-      author: dymusha
+      author: khmil
       changes:
         - createTable:
             tableName: movies_actors
