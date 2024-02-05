@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-actor-table
+      author: suprun
+      changes:
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: country_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_actor_country_id
+                    references: countries(id)
+      rollback:
+        - dropForeignKeyConstraint:
+              baseTableName: actors
+              constraintName: fk_actor_country_id
+        - dropTable:
+            tableName: actors
