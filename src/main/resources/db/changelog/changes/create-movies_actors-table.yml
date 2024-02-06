@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: create-movies-actors-table
+      id: create-movies_actors-table
       author: khmil
       changes:
         - createTable:
