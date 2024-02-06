@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: create-countries-table
+      id: create-country-table
       author: khmil
       changes:
         - createTable:
