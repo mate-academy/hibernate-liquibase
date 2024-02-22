@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
-      id: 04-create
-      author: bohdan-dissatisfied
+      id: 04-create-movies-actors-table
+      author: nvm
       changes:
         - createTable:
             tableName: movies_actors
@@ -10,7 +10,7 @@ databaseChangeLog:
                   name: id
                   type: BIGINT
                   autoIncrement: true
-                  constraints:`
+                  constraints:
                     primaryKey: true
               - column:
                   name: actor_id
