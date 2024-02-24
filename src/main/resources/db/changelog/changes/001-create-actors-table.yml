@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-movies-table
-      author: Olya Starykova
+      id: create-actors-table
+      author: rsoproniuk
       changes:
         - createTable:
-            tableName: movies
+            tableName: actors
             columns:
               - column:
                   name: id
@@ -14,7 +14,13 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: title
+                  name: name
                   type: varchar(255)
                   constraints:
                     nullable: false
+              - column:
+                  name: country_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: country_id
+                    nullable: true

@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: create-countries-table
-      author: Olya Starykova
+      author: rsoproniuk
       changes:
         - createTable:
             tableName: countries

@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
-      id: create-movies_actors-table
-      author: Olya Starykova
+      id: create movies_actors table
+      author: rsoproniuk
       changes:
         - createTable:
             tableName: movies_actors
@@ -10,10 +10,11 @@ databaseChangeLog:
                   name: movie_id
                   type: bigint
                   constraints:
+                    foreignKeyName: movie_id
                     nullable: false
               - column:
                   name: actor_id
                   type: bigint
                   constraints:
-                    nullable: false
-
+                    foreignKeyName: actor_id
+                    nullable: true
