@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: alter-movies_actors-table
+      author: AdamMudrak
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            constraintName: FK_movies_actors_actor
+            baseColumnNames: actor_id
+            referencedTableName: actors
+            referencedColumnNames: id
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            constraintName: FK_movies_actors_movie
+            baseColumnNames: movie_id
+            referencedTableName: movies
+            referencedColumnNames: id
