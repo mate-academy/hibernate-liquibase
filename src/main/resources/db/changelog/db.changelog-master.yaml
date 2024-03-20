@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/1create-countries-table.yml
+  - include:
+      file: db/changelog/changes/2create-movie-table.yml
+  - include:
+      file: db/changelog/changes/3create-actors-table.yml
+  - include:
+      file: db/changelog/changes/4create-movies-actors-join-table.yml
+
