@@ -3,15 +3,20 @@ databaseChangeLog:
       id: create-actors-table
       author: gulini
       changes:
-      - createTable:
-          tableName: actors
-          columns:
-            - column:
-                name: id
-                type: bigint
-                autoIncrement: true
-                constraints:
-                  primaryKey: true
-            - column:
-                name: name
-                type: varchar(255)
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: country_id
+                  type: bigint
+                  constraints:
+                    nullable: true

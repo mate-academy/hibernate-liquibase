@@ -5,3 +5,5 @@ databaseChangeLog:
       file: "db/changelog/changes/countries.yml"
   - include:
       file: "db/changelog/changes/movies.yml"
+  - include:
+      file: "db/changelog/changes/movies_actors.yml"
