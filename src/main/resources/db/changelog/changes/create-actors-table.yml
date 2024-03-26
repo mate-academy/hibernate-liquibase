@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: create-actors-table
-      author: yana
+      author: myName
       changes:
         - createTable:
             tableName: actors
@@ -16,11 +16,6 @@ databaseChangeLog:
               - column:
                 name: name
                 type: varchar(255)
-                conctraints:
-                  nullable: false
               - column:
                   name: country_id
                   type: bigint
-                  constraints:
-                    foreignKeyName: fk_actors_on_country
-                    references: countries(id)

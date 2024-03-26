@@ -1,6 +1,7 @@
 databaseChangeLog:
-  - id: create-movies-actors-table
-      author: yana
+  - changeSet:
+      id: create-movies-actors-table
+      author: myName
       changes:
         - createTable:
             tableName: movies_actors
@@ -11,12 +12,11 @@ databaseChangeLog:
                 constraints:
                   nullable: false
                   foreignKeyName: fk_movact_on_actor
-                  references: actors (id)
+                  references: actors(id)
               - column:
                 name: movie_id
                 type: bigint
                 conctrains:
                   nullable: false
                   foreignKeyName: fk_movact_on_movie
-                  references: movies (id)
-
+                  references: movies(id)

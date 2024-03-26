@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: create-movies-table
-      author: yana
+      author: myName
       changes:
         - createTable:
             tableName: movies
@@ -16,3 +16,6 @@ databaseChangeLog:
               - column:
                   name: title
                   type: varchar(255)
+              - column:
+                  name: actor_id
+                  type: bigint
