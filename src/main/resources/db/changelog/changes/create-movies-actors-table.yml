@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - id: create-movies-actors-table
+      author: yana
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                name: actor_id
+                type: bigint
+                constraints:
+                  nullable: false
+                  foreignKeyName: fk_movact_on_actor
+                  references: actors (id)
+              - column:
+                name: movie_id
+                type: bigint
+                conctrains:
+                  nullable: false
+                  foreignKeyName: fk_movact_on_movie
+                  references: movies (id)
+

@@ -1,7 +1,0 @@
-databaseChangeLog:
-  - include:
-      file: /db/changelog/changes/create-countries-table.sql
-  - include:
-      file: /db/changelog/changes/create-actors-table.sql
-  - include:
-      file: /db/changelog/changes/create-movies-table.sql
