@@ -1,0 +1,99 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_table_actors
+      author: your_name
+      changes:
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country_id
+                  type: bigint
+                  constraints:
+                    nullable: true
+            constraints:
+              primaryKey:
+                primaryKey: true
+                columnNames: id
+              foreignKey:
+                constraintName: fk_country_id
+                baseColumnNames: country_id
+                referencedTableName: country
+                referencedColumnNames: id
+  - changeSet:
+      id: create_table_countries
+      author: your_name
+      changes:
+        - createTable:
+            tableName: countries
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: create_table_movies
+      author: your_name
+      changes:
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+            constraints:
+              primaryKey:
+                primaryKey: true
+                columnNames: [ movie_id, actor_id ]
+              foreignKey:
+                constraintName: fk_movies_actors_movie_id
+                baseColumnNames: movie_id
+                referencedTableName: movies
+                referencedColumnNames: id
+              foreignKey:
+                constraintName: fk_movies_actors_actor_id
+                baseColumnNames: actor_id
+                referencedTableName: actors
+                referencedColumnNames: id
