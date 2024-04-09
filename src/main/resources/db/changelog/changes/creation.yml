@@ -1,0 +1,93 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: salat
+      changes:
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: country_id
+                  type: BIGINT
+                  constraints:
+                    nullable: true
+            foreignKeyConstraints:
+              - baseColumnNames: country_id
+                baseTableName: actors
+                referencedColumnNames: id
+                referencedTableName: countries
+
+  - changeSet:
+      id: 2
+      author: salat
+      changes:
+        - createTable:
+            tableName: countries
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+
+  - changeSet:
+      id: 3
+      author: salat
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: BIGINT
+              - column:
+                  name: actor_id
+                  type: BIGINT
+            primaryKey:
+              columns:
+                - column:
+                    name: movie_id
+                - column:
+                    name: actor_id
+            foreignKeyConstraints:
+              - baseColumnNames: movie_id
+                baseTableName: movies_actors
+                referencedColumnNames: id
+                referencedTableName: movies
+              - baseColumnNames: actor_id
+                baseTableName: movies_actors
+                referencedColumnNames: id
+                referencedTableName: actors
+
+  - changeSet:
+      id: 4
+      author: salat
+      changes:
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(255)
