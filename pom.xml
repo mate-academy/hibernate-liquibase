@@ -93,7 +93,7 @@
                     <version>${liquibase.version}</version>
                     <configuration>
                         <propertyFile>src/main/resources/liquibase.properties</propertyFile>
-                    </configuration>
+                    </configuration >
                 </plugin>
             </plugins>
         </pluginManagement>
