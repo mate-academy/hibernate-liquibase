@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movie-table
+      author: TarasFedak
+      changes:
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: title
+                  type: VARCHAR(255)
