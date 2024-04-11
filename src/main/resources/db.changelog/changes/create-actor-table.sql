@@ -1,1 +1,0 @@
-CREATE table actors (id BIGINT not null AUTO_INCREMENT,name VARCHAR(255))
