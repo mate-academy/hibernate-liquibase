@@ -1,0 +1,25 @@
+dataBaseChangeLog:
+  - changeSet:
+    id: create-actors-table
+    author: Sviatoslav
+    changes:
+      - createTable:
+          tableName: actors
+          columns:
+            - column:
+                name: id
+                type: bigint
+                autoincrement: true
+                constraints:
+                  primaryKey: true
+                  nullable: false
+            - column:
+                name: name
+                type: varchar(255)
+                constraints:
+                  nullable: false
+            - column:
+                name: country
+                type: varchar(255)
+                constraints:
+                  nullable: false

@@ -1,0 +1,20 @@
+dataBaseChangeLog:
+  - changeSet:
+    id: create-countries-table
+    author: Sviatoslav
+    changes:
+      - createTable:
+          tableName: countries
+          columns:
+            - column:
+                name: id
+                type: bigint
+                autoincrement: true
+                constraints:
+                  primaryKey: true
+                  nullable: false
+            - column:
+                name: name
+                type: varchar(255)
+                constraints:
+                  nullable: false
