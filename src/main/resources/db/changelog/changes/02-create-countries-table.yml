@@ -1,4 +1,4 @@
-dataBaseChangeLog:
+databaseChangeLog:
   - changeSet:
     id: create-countries-table
     author: Sviatoslav
@@ -9,7 +9,7 @@ dataBaseChangeLog:
             - column:
                 name: id
                 type: bigint
-                autoincrement: true
+                autoIncrement: true
                 constraints:
                   primaryKey: true
                   nullable: false
