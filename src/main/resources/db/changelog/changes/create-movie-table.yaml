@@ -1,20 +1,33 @@
 databaseChangeLog:
   - changeSet:
-      id: 3
+      id: create-movie-table
       author: Pavlo
       changes:
         - createTable:
-            tableName: countries
+            tableName: movies
             columns:
               - column:
                   name: id
-                  type: BIGINT
+                  type: bigint
                   autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: name
-                  type: VARCHAR(255)
+                  name: title
+                  type: varchar(255)
                   constraints:
                     nullable: false
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: true
