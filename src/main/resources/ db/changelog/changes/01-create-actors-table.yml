@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: create-actor-table
+      id: create-actors-table
       author: eugene
       changes:
         - createTable:
