@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: create-actors-table
+      id: create-actor-table
       author: eugene
       changes:
         - createTable:
@@ -21,3 +21,6 @@ databaseChangeLog:
               - column:
                   name: country_id
                   type: bigint
+                  constraints:
+                    foreignKeyName: fk_actor_country
+                    references: countries(id)

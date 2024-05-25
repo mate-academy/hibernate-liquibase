@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: create-movies-table
+      id: create-movie-table
       author: eugene
       changes:
         - createTable:
@@ -12,9 +12,21 @@ databaseChangeLog:
                   autoIncrement: true
                   constraints:
                     primaryKey: true
-                    nullable: false
               - column:
                   name: title
                   type: varchar(255)
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
                   constraints:
-                    nullable: false
+                    foreignKeyName: fk_movies_actors_movie
+                    references: movies(id)
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_movies_actors_actor
+                    references: actors(id)
