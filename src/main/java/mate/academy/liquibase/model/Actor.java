@@ -20,6 +20,10 @@ public class Actor implements Cloneable {
     public Actor() {
     }
 
+    public Actor(Long id) {
+        this.id = id;
+    }
+
     public Actor(String name) {
         this.name = name;
     }
