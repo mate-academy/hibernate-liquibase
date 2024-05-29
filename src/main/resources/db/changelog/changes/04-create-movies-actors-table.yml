@@ -9,12 +9,6 @@ databaseChangeLog:
               - column:
                   name: movie_id
                   type: bigint
-                  constraints:
-                    nullable: false
               - column:
                   name: actor_id
                   type: bigint
-                  constraints:
-                    nullable: false
-                    foreignKeyName: fk_movies_actors_id
-                    references: actors(id)
