@@ -1,12 +1,12 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/liquibase-1?createDatabaseIfNotExist=true&amp;serverTimezone=UTC</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/liquibase?createDatabaseIfNotExist=true&amp;serverTimezone=UTC</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="connection.username">root</property>
         <property name="connection.password">pass</property>
         <property name="show_sql">true</property>
-        <property name="hbm2ddl.auto">validate</property>
+        <property name="hbm2ddl.auto">create</property>
         <mapping class="mate.academy.liquibase.model.Actor"/>
         <mapping class="mate.academy.liquibase.model.Country"/>
         <mapping class="mate.academy.liquibase.model.Movie"/>
