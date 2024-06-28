@@ -26,7 +26,6 @@ public class HibernateUtil {
     }
 
     private static void runLiquibaseUpdate() {
-        // You might need to adjust this depending on your setup
         String changelogFile = "db/changelog/db.changelog-master.yaml";
         String liquibasePropertiesPath = "liquibase.properties";
 
@@ -39,9 +38,9 @@ public class HibernateUtil {
             liquibaseProps.load(input);
 
             try (Connection connection = DriverManager.getConnection(
-                    liquibaseProps.getProperty("url"),
-                    liquibaseProps.getProperty("username"),
-                    liquibaseProps.getProperty("password"))) {
+                    liquibaseProps.getProperty("jdbc:mysql://localhost/cinema?serverTimezone=UTC"),
+                    liquibaseProps.getProperty("root"),
+                    liquibaseProps.getProperty("root12345"))) {
 
                 Database database = DatabaseFactory.getInstance()
                         .findCorrectDatabaseImplementation(new JdbcConnection(connection));
