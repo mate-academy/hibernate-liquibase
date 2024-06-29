@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-country-table
+      id: create-actors-table
       author: nazar
       changes:
         - createTable:
-            tableName: country
+            tableName: actors
             columns:
               - column:
                   name: id
@@ -16,5 +16,10 @@ databaseChangeLog:
               - column:
                   name: name
                   type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country_id
+                  type: bigint
                   constraints:
                     nullable: false

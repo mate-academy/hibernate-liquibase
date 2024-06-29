@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-movie-actor-table
+      id: create-movies-actors-table
       author: nazar
       changes:
         - createTable:
-            tableName: movie_actor
+            tableName: movies_actors
             columns:
               - column:
                   name: movie_id
@@ -12,11 +12,11 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                     foreignKeyName: fk_movies_actors_movie
-                    references: movie(id)
+                    references: movies(id)
               - column:
                   name: actor_id
                   type: bigint
                   constraints:
                     nullable: false
                     foreignKeyName: fk_movies_actors_actor
-                    references: actor(id)
+                    references: actors(id)

@@ -21,8 +21,12 @@ public class HibernateUtil {
     }
 
     public static SessionFactory initSessionFactory() {
-        runLiquibaseUpdate();
-        return new Configuration().configure().buildSessionFactory();
+        try {
+            runLiquibaseUpdate();
+            return new Configuration().configure().buildSessionFactory();
+        } catch (Exception e) {
+            throw new RuntimeException("Error creating SessionFactory", e);
+        }
     }
 
     private static void runLiquibaseUpdate() {
@@ -38,16 +42,15 @@ public class HibernateUtil {
             liquibaseProps.load(input);
 
             try (Connection connection = DriverManager.getConnection(
-                    liquibaseProps.getProperty("jdbc:mysql://localhost/cinema?serverTimezone=UTC"),
-                    liquibaseProps.getProperty("root"),
-                    liquibaseProps.getProperty("root12345"))) {
+                    liquibaseProps.getProperty("url"),
+                    liquibaseProps.getProperty("username"),
+                    liquibaseProps.getProperty("password"))) {
 
                 Database database = DatabaseFactory.getInstance()
                         .findCorrectDatabaseImplementation(new JdbcConnection(connection));
 
                 Liquibase liquibase = new Liquibase(
-                        changelogFile, new ClassLoaderResourceAccessor(), database
-                );
+                        changelogFile, new ClassLoaderResourceAccessor(), database);
                 liquibase.update(new Contexts());
             }
         } catch (Exception e) {
