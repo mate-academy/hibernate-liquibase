@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies_actors-table
+      author: Dima Matviichyk
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_movie_id
+                    references: checkin.movies(id)
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_actor_id
+                    references: checkin.actors(id)
+              - addPrimaryKey:
+                  schemaName: checkin
+                  tableName: movies_events
+                  constraintName: pk_movies_actors
+                  columnNames: movie_id, actor_id
