@@ -21,5 +21,3 @@ databaseChangeLog:
               - column:
                   name: country_id
                   type: bigint
-                  constraints:
-                    nullable: false
