@@ -16,3 +16,10 @@ databaseChangeLog:
               - column:
                   name: title
                   type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: true
