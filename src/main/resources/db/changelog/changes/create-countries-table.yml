@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: create-country-table
+      id: create-countries-table
       author: bw
       changes:
         - createTable:
@@ -8,13 +8,13 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  type: BIGINT
+                  type: bigint
                   autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
                   name: name
-                  type: VARCHAR(255)
+                  type: varchar(255)
                   constraints:
                     nullable: false
