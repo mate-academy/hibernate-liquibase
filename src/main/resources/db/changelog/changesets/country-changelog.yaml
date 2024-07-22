@@ -2,6 +2,11 @@ databaseChangeLog:
   - changeSet:
       id: 1
       author: yourname
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            tableName: countries
       changes:
         - createTable:
             tableName: countries
