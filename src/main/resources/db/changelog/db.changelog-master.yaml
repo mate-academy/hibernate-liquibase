@@ -7,3 +7,7 @@ databaseChangeLog:
       file: /db/changelog/changes/create-movie-table.yml
   - include:
       file: /db/changelog/changes/create-movies_actors-table.yml
+  - include:
+      file: /db/changelog/changes/delete-movies_actors.yml
+  - include:
+      file: /db/changelog/changes/create-another-way-table-movies_actors.yml
