@@ -21,3 +21,5 @@ databaseChangeLog:
               - column:
                   name: actor_id
                   type: bigint
+                  constraints:
+                    nullable: true
