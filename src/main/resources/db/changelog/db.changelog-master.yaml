@@ -6,4 +6,4 @@ databaseChangeLog:
   - include:
       file: /db/changelog/changes/create-movie-table.yml
   - include:
-      file: /db/changelog/changes/create-movies_actors-table.yaml
+      file: /db/changelog/changes/create-movies_actors-table.yml
