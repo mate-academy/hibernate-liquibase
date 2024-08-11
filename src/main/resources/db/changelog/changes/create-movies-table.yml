@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: create-actors-table
-      author: root
+      author: mateacademy
       changes:
         - createTable:
             tableName: movies
@@ -12,16 +12,8 @@ databaseChangeLog:
                   autoIncrement: true
                   constraints:
                     primaryKey: true
-                    nullable: false
               - column:
                   name: title
                   type: varchar(255)
                   constraints:
                     nullable: false
-
-            foreignKeyConstraints:
-              - baseTableName: movies
-                baseColumnName: actor_id
-                referencedTableName: actors
-                referencedColumnName: id
-                constraintName: fk_movies_actors
