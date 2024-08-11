@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: create-actors-table
-      author: root
+      author: mateacademy
       changes:
         - createTable:
             tableName: actors
@@ -12,7 +12,6 @@ databaseChangeLog:
                   autoIncrement: true
                   constraints:
                     primaryKey: true
-                    nullable: false
               - column:
                   name: name
                   type: varchar(255)
@@ -21,9 +20,3 @@ databaseChangeLog:
               - column:
                   name: country_id
                   type: bigint
-            foreignKeyConstraints:
-              - baseTableName: actors
-                baseColumnName: country_id
-                referencedTableName: countries
-                referencedColumnName: id
-                constraintName: fk_actors_country

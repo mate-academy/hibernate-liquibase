@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-actors-table
+      id: create-movies-table
       author: mateacademy
       changes:
         - createTable:
-            tableName: actors
+            tableName: movies
             columns:
               - column:
                   name: id
@@ -13,10 +13,7 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
               - column:
-                  name: name
+                  name: title
                   type: varchar(255)
                   constraints:
                     nullable: false
-              - column:
-                  name: country_id
-                  type: bigint
