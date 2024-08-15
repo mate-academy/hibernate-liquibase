@@ -22,10 +22,4 @@ databaseChangeLog:
                   name: country_id
                   type: bigint
                   constraints:
-                    nullable: false
-        - addForeignKeyConstraint:
-            constraintName: fk_actors_countries
-            baseTableName: actors
-            baseColumnNames: country_id
-            referencedTableName: countries
-            referencedColumnNames: id
+                    foreignKeyName: fk_actors_country

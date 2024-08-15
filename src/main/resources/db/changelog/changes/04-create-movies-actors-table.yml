@@ -10,21 +10,11 @@ databaseChangeLog:
                   name: movie_id
                   type: bigint
                   constraints:
-                    nullable: false
+                    primaryKey: true
+                    foreignKeyName: fk_movies_actors_movie
               - column:
                   name: actor_id
                   type: bigint
                   constraints:
-                    nullable: false
-        - addForeignKeyConstraint:
-            constraintName: fk_actors_movies
-            baseTableName: movies_actors
-            baseColumnNames: movie_id
-            referencedTableName: movies
-            referencedColumnNames: id
-        - addForeignKeyConstraint:
-            constraintName: fk_movies_actors
-            baseTableName: movies_actors
-            baseColumnNames: actor_id
-            referencedTableName: actors
-            referencedColumnNames: id
+                    primaryKey: true
+                    foreignKeyName: fk_movies_actors_actor
