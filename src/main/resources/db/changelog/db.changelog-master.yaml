@@ -1,0 +1,9 @@
+databaseChangelog:
+  - include:
+      file: /db/changelog/changes/create-countries-table.yaml
+  - include:
+      file: /db/changelog/changes/create-actors-table.yaml
+  - include:
+      file: /db/changelog/changes/create-movie-table.yaml
+  - include:
+      file: /db/changelog/changes/create-movies_actors-table.yaml
