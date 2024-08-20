@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: create-movie-table
+      id: create-movies-table
       author: mateacademy
       changes:
         - createTable:

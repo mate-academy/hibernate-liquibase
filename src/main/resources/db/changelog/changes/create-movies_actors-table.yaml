@@ -11,15 +11,11 @@ databaseChangeLog:
                   type: bigint
                   constraints:
                     nullable: false
-                    foreignKeyName: fk_movies_id
-                    references: movies(id)
               - column:
                   name: actor_id
                   type: bigint
                   constraints:
                     nullable: false
-                    foreignKeyName: fk_actors_id
-                    references: actors(id)
         - addForeignKeyConstraint:
             baseTableName: movies_actors
             baseColumnNames: movie_id
