@@ -26,6 +26,6 @@ databaseChangeLog:
         - addForeignKeyConstraint:
             baseTableName: actors
             baseColumnNames: country_id
-            referenceTableName: countries
-            referenceColumnName: id
+            referencedTableName: countries
+            referencedColumnNames : id
             constraintName: fk_actor_country

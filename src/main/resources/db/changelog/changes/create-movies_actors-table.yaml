@@ -19,12 +19,12 @@ databaseChangeLog:
         - addForeignKeyConstraint:
             baseTableName: movies_actors
             baseColumnNames: movie_id
-            referenceTableName: movies
-            referenceColumnName: id
+            referencedTableName: movies
+            referencedColumnNames: id
             constraintName: fk_movie_actor_movie
         - addForeignKeyConstraint:
             baseTableName: movies_actors
             baseColumnNames: actor_id
-            referenceTableName: actors
-            referenceColumnName: id
+            referencedTableName: actors
+            referencedColumnNames: id
             constraintName: fk_movie_actor_actor
