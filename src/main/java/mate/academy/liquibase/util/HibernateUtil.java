@@ -21,7 +21,7 @@ public class HibernateUtil {
     }
 
     public static SessionFactory initSessionFactory() {
-//        runLiquibaseUpdate();
+        runLiquibaseUpdate();
         return new Configuration().configure().buildSessionFactory();
     }
 

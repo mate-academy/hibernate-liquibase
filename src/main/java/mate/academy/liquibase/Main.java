@@ -1,7 +1,6 @@
 package mate.academy.liquibase;
 
 import java.util.List;
-
 import mate.academy.liquibase.dao.ActorDao;
 import mate.academy.liquibase.dao.CountryDao;
 import mate.academy.liquibase.dao.MovieDao;
@@ -40,7 +39,7 @@ public class Main {
         Movie fastAndFurious = new Movie("Fast and Furious");
         fastAndFurious.setActors(List.of(vinDiesel));
         MovieDao movieDao = new MovieDaoImpl(sessionFactory);
-        MovieService movieService =  new MovieServiceImpl(movieDao);
+        MovieService movieService = new MovieServiceImpl(movieDao);
         movieService.save(fastAndFurious);
         System.out.println(movieService.get(fastAndFurious.getId()));
     }
