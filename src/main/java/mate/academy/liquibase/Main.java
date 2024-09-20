@@ -1,6 +1,10 @@
 package mate.academy.liquibase;
 
 import java.util.List;
+
+import mate.academy.liquibase.dao.ActorDao;
+import mate.academy.liquibase.dao.CountryDao;
+import mate.academy.liquibase.dao.MovieDao;
 import mate.academy.liquibase.dao.impl.ActorDaoImpl;
 import mate.academy.liquibase.dao.impl.CountryDaoImpl;
 import mate.academy.liquibase.dao.impl.MovieDaoImpl;
@@ -22,20 +26,21 @@ public class Main {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
         Country usa = new Country("USA");
-        CountryService countryService = new CountryServiceImpl(
-                new CountryDaoImpl(sessionFactory)); // TODO: initialize this instance
+        CountryDao countryDao = new CountryDaoImpl(sessionFactory);
+        CountryService countryService = new CountryServiceImpl(countryDao);
         countryService.save(usa);
+        System.out.println(countryService.get(usa.getId()).getName());
 
         Actor vinDiesel = new Actor("Vin Diesel");
         vinDiesel.setCountry(usa);
-        ActorService actorService = new ActorServiceImpl(
-                new ActorDaoImpl(sessionFactory)); // TODO: initialize this instance
+        ActorDao actorDao = new ActorDaoImpl(sessionFactory);
+        ActorService actorService = new ActorServiceImpl(actorDao);
         actorService.save(vinDiesel);
 
         Movie fastAndFurious = new Movie("Fast and Furious");
         fastAndFurious.setActors(List.of(vinDiesel));
-        MovieService movieService = new MovieServiceImpl(
-                new MovieDaoImpl(sessionFactory)); // TODO: initialize this instance
+        MovieDao movieDao = new MovieDaoImpl(sessionFactory);
+        MovieService movieService =  new MovieServiceImpl(movieDao);
         movieService.save(fastAndFurious);
         System.out.println(movieService.get(fastAndFurious.getId()));
     }
