@@ -18,7 +18,3 @@ databaseChangeLog:
                   type: "VARCHAR(255)"
                   constraints:
                     nullable: false
-        - addUniqueConstraint:
-            tableName: "movies"
-            columnNames: "title"
-            constraintName: "unique_movie_title"

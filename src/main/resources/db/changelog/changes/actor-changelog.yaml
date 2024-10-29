@@ -3,6 +3,10 @@ databaseChangeLog:
       id: 1
       author: user
       changes:
+        - preConditions:
+            - not:
+                tableExists:
+                  tableName: "actors"
         - createTable:
             tableName: "actors"
             columns:
@@ -23,10 +27,3 @@ databaseChangeLog:
                   type: "BIGINT"
                   constraints:
                     nullable: true
-        - addForeignKeyConstraint:
-            baseTableName: "actors"
-            baseColumnNames: "country_id"
-            constraintName: "fk_actor_country"
-            referencedTableName: "countries"
-            referencedColumnNames: "id"
-            onDelete: "SET NULL"

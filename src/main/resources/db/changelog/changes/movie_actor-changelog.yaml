@@ -16,21 +16,3 @@ databaseChangeLog:
                   type: "BIGINT"
                   constraints:
                     nullable: false
-        - addPrimaryKey:
-            tableName: "movies_actors"
-            columnNames: "movie_id, actor_id"
-            constraintName: "pk_movies_actors"
-        - addForeignKeyConstraint:
-            baseTableName: "movies_actors"
-            baseColumnNames: "movie_id"
-            constraintName: "fk_movies_actors_movie"
-            referencedTableName: "movies"
-            referencedColumnNames: "id"
-            onDelete: "CASCADE"
-        - addForeignKeyConstraint:
-            baseTableName: "movies_actors"
-            baseColumnNames: "actor_id"
-            constraintName: "fk_movies_actors_actor"
-            referencedTableName: "actors"
-            referencedColumnNames: "id"
-            onDelete: "CASCADE"

@@ -18,7 +18,3 @@ databaseChangeLog:
                   type: "VARCHAR(255)"
                   constraints:
                     nullable: false
-        - addUniqueConstraint:
-            tableName: "countries"
-            columnNames: "name"
-            constraintName: "unique_country_name"
