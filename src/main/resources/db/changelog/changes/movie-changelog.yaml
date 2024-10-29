@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: user
+      changes:
+        - createTable:
+            tableName: "movies"
+            columns:
+              - column:
+                  name: "id"
+                  type: "BIGINT"
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: "title"
+                  type: "VARCHAR(255)"
+                  constraints:
+                    nullable: false
+        - addUniqueConstraint:
+            tableName: "movies"
+            columnNames: "title"
+            constraintName: "unique_movie_title"

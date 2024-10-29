@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: user
+      changes:
+        - createTable:
+            tableName: "countries"
+            columns:
+              - column:
+                  name: "id"
+                  type: "BIGINT"
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: "name"
+                  type: "VARCHAR(255)"
+                  constraints:
+                    nullable: false
+        - addUniqueConstraint:
+            tableName: "countries"
+            columnNames: "name"
+            constraintName: "unique_country_name"
