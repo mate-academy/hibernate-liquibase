@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-countries-table
+      author: orest
+      changes:
+        - createTable:
+            tableName: countries
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
