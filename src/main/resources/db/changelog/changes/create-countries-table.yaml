@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-country-table
+      author: root
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            tableExists:
+              tableName: countries
+      changes:
+        - createTable:
+            tableName: countries
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
