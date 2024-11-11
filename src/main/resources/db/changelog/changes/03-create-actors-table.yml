@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-actors-table
+      author: pmelnyk
+      changes:
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country_id
+                  type: BIGINT
+                  constraints:
+                    references: countries(id)
+                    foreignKeyName: fk_actor_country  # Додано foreignKeyName

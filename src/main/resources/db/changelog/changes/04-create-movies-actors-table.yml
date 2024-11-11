@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies_actors-table
+      author: pmelnyk
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    references: movies(id)
+                    foreignKeyName: fk_movies_actors_movie
+              - column:
+                  name: actor_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    references: actors(id)
+                    foreignKeyName: fk_movies_actors_actor
+              - primaryKey:
+                  columns:
+                    - movie_id
+                    - actor_id
