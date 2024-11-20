@@ -1,20 +1,20 @@
 databaseChangeLog:
   - changeSet:
-      id: create-movie-table
-      author: stoneBlood
+      id: "create-countries"
+      author: "stoneBlood"
       changes:
         - createTable:
-            tableName: movies
+            tableName: "countries"
             columns:
               - column:
-                  name: id
-                  type: bigint
+                  name: "id"
+                  type: "BIGINT"
                   autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: title
-                  type: varchar(255)
+                  name: "name"
+                  type: "VARCHAR(255)"
                   constraints:
                     nullable: false
