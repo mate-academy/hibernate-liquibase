@@ -1,19 +1,20 @@
 databaseChangeLog:
   - changeSet:
       id: create-countries-table
-      author: orest
+      author: root
       changes:
         - createTable:
             tableName: countries
             columns:
               - column:
                   name: id
-                  type: bigint
+                  type: BIGINT
+                  autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
                   name: name
-                  type: varchar(255)
+                  type: VARCHAR(255)
                   constraints:
                     nullable: false
