@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: create-countries-table
-      author: mate-country
+      author: mate_countries
       changes:
         - createTable:
             tableName: countries
