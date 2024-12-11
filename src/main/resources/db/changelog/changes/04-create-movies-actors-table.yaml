@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies-actors-table
+      author: Daniil Nosenko
+      changes:
+        - createTable:
+      tableName: "movies_actors"
+      columns:
+        - name: "movie_id"
+          type: "BIGINT"
+          constraints:
+            primaryKey: true
+            foreignKey:
+              references: "movies(id)"
+            onDelete: "CASCADE"
+            nullable: false
+        - name: "actor_id"
+          type: "BIGINT"
+          constraints:
+            primaryKey: true
+            foreignKey:
+              references: "actors(id)"
+            onDelete: "CASCADE"
+            nullable: false

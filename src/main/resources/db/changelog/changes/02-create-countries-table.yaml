@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-countries-table
+      author: Daniil Nosenko
+      changes:
+        - createTable:
+          tableName: "countries"
+          columns:
+            - name: "id"
+              type: "BIGINT"
+              constraints:
+                primaryKey: true
+                autoIncrement: true
+                nullable: false
+            - name: "name"
+              type: "VARCHAR(255)"
+              constraints:
+                nullable: false
