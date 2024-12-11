@@ -1,18 +1,20 @@
 databaseChangeLog:
   - changeSet:
-      id: create-movies-table
-      author: Daniil Nosenko
+      id: create-movie-table
+      author: D.NOSENKO
       changes:
         - createTable:
-          tableName: "movies"
-          columns:
-            - name: "id"
-              type: "BIGINT"
-              autoIncrement: true
-              constraints:
-                primaryKey: true
-                nullable: false
-            - name: "title"
-              type: "VARCHAR(255)"
-              constraints:
-                nullable: false
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
