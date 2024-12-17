@@ -1,7 +1,6 @@
 package mate.academy.liquibase;
 
 import java.util.List;
-
 import mate.academy.liquibase.dao.ActorDao;
 import mate.academy.liquibase.dao.CountryDao;
 import mate.academy.liquibase.dao.MovieDao;
