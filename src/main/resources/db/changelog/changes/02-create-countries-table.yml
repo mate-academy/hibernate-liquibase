@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
-      id: create-actor-table
-      author: dFokin
+      id: create-countries-table
+      author: fokin
       changes:
         - createTable:
             tableName: countries
@@ -17,4 +17,4 @@ databaseChangeLog:
                   name: name
                   type: varchar(255)
                   constraints:
-                    nullable: false
+                    nullable: true
