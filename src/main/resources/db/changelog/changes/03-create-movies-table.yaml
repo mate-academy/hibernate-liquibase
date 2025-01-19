@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: yourname
+      changes:
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    autoIncrement: true
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: release_date
+                  type: DATE
