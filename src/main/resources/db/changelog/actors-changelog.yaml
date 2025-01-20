@@ -28,3 +28,4 @@ databaseChangeLog:
             baseColumnNames: country_id
             referencedTableName: countries
             referencedColumnNames: id
+            constraintName: fk_actors_country
