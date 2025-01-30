@@ -4,6 +4,6 @@ databaseChangeLog:
   - include:
       file: db/changes/02-create-actors-table.yaml
   - include:
-      file: db/changes/03-create-movies-table.
+      file: db/changes/03-create-movies-table.yaml
   - include:
       file: db/changes/04-create-movies-actors-table.yaml
