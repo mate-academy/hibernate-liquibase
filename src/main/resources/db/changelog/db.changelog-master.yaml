@@ -64,25 +64,3 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                     unique: true
-
-  - changeSet:
-      id: 4
-      author: your_name
-      changes:
-        - createTable:
-            tableName: movies_actors
-            columns:
-              - column:
-                  name: movie_id
-                  type: BIGINT
-                  constraints:
-                    foreignKeyName: fk_movies_actors_movie
-                    references: movies(id)
-                    nullable: false
-              - column:
-                  name: actor_id
-                  type: BIGINT
-                  constraints:
-                    foreignKeyName: fk_movies_actors_actor
-                    references: actors(id)
-                    nullable: false
