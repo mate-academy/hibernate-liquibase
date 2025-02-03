@@ -4,27 +4,8 @@ databaseChangeLog:
       author: anton
       changes:
         - createTable:
-            tableName: actors
-            columns:
-              - column:
-                  name: id
-                  type: bigint
-                  autoIncrement: true
-                  constraints:
-                    primaryKey: true
-                    nullable: false
-              - column:
-                  name: name
-                  type: varchar(255)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: country
-                  type: Country
-                  constraints:
-                    nullable: false
-        - createTable:
             tableName: countries
+            ifNotExists: true
             columns:
               - column:
                   name: id
@@ -38,8 +19,33 @@ databaseChangeLog:
                   type: varchar(255)
                   constraints:
                     nullable: false
+
+        - createTable:
+            tableName: actors
+            ifNotExists: true
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_actors_country
+                    referencedTableName: countries
+                    referencedColumnNames: id
+
         - createTable:
             tableName: movies
+            ifNotExists: true
             columns:
               - column:
                   name: id
@@ -53,8 +59,24 @@ databaseChangeLog:
                   type: varchar(255)
                   constraints:
                     nullable: false
+
+        - createTable:
+            tableName: movies_actors
+            ifNotExists: true
+            columns:
               - column:
-                  name: actors
-                  type: Actor
+                  name: movie_id
+                  type: bigint
                   constraints:
                     nullable: false
+                    foreignKeyName: fk_movieactors_movie
+                    referencedTableName: movies
+                    referencedColumnNames: id
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_movieactors_actor
+                    referencedTableName: actors
+                    referencedColumnNames: id
