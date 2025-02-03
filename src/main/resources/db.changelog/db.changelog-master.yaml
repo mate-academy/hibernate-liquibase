@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: /db/changeLog/changes/01-create-tables.yaml
