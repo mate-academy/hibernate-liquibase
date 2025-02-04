@@ -2,6 +2,10 @@ databaseChangeLog:
   - changeSet:
       id: create-movies-actors-table
       author: root
+      preConditions:
+        - not:
+            - tableExists:
+                tableName: movies_actors
       changes:
         - createTable:
             tableName: movies_actors
@@ -10,9 +14,23 @@ databaseChangeLog:
                   name: movie_id
                   type: bigint
                   constraints:
-                    nullable: true
+                    nullable: false
               - column:
                   name: actor_id
                   type: bigint
                   constraints:
-                    nullable: true
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseColumnNames: movie_id
+            baseTableName: movies_actors
+            constraintName: fk_movies_actors_movie
+            referencedColumnNames: id
+            referencedTableName: movies
+
+        - addForeignKeyConstraint:
+            baseColumnNames: actor_id
+            baseTableName: movies_actors
+            constraintName: fk_movies_actors_actor
+            referencedColumnNames: id
+            referencedTableName: actors

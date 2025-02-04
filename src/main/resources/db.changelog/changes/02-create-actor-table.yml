@@ -1,7 +1,11 @@
 databaseChangeLog:
   - changeSet:
-      id: create-actor-table
+      id: create-actors-table
       author: root
+      preConditions:
+        - not:
+            - tableExists:
+                tableName: actors
       changes:
         - createTable:
             tableName: actors
@@ -13,13 +17,18 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
                     nullable: false
-              -  column:
-                   name: name
-                   type: varchar (255)
-                   constraints:
-                     nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
               - column:
                   name: country_id
                   type: bigint
-                  constraints:
-                    nullable: true
+
+        - addForeignKeyConstraint:
+            baseColumnNames: country_id
+            baseTableName: actors
+            constraintName: fk_actors_country
+            referencedColumnNames: id
+            referencedTableName: countries

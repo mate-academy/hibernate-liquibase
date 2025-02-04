@@ -1,7 +1,11 @@
 databaseChangeLog:
   - changeSet:
-      id: create-country-table
+      id: create-countries-table
       author: root
+      preConditions:
+        - not:
+            - tableExists:
+                tableName: countries
       changes:
         - createTable:
             tableName: countries
@@ -13,8 +17,6 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
                     nullable: false
-              -  column:
-                   name: name
-                   type: varchar (255)
-                   constraints:
-                     nullable: false
+              - column:
+                  name: name
+                  type: varchar(225)
