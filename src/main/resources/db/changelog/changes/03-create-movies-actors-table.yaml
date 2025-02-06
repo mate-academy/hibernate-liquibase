@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies-actors-table
+      author: ihor-sydorenko
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+
+#        - addForeignKeyConstraint:
+#            baseTableName: movies_actors
+#            baseColumnNames: movie_id
+#            referencedTableName: movie
+#            referencedColumnNames: id
+#            constraintName: fk_movies_actors_movie_id
+#
+#        - addForeignKeyConstraint:
+#            baseTableName: movies_actors
+#            baseColumnNames: actor_id
+#            referencedTableName: actors
+#            referencedColumnNames: id
+#            constraintName: fk_movies_actors_actor_id
