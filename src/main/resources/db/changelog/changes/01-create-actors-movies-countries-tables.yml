@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: create-countries-table
-      author: mateacademy
+      author: Mate Academy
       changes:
         - createTable:
             tableName: countries
@@ -19,7 +19,7 @@ databaseChangeLog:
 
   - changeSet:
       id: create-actors-table
-      author: mateacademy
+      author: Mate Academy
       changes:
         - createTable:
             tableName: actors
@@ -46,7 +46,7 @@ databaseChangeLog:
 
   - changeSet:
       id: create-movies-table
-      author: mateacademy
+      author: Mate Academy
       changes:
         - createTable:
             tableName: movies
@@ -64,7 +64,7 @@ databaseChangeLog:
 
   - changeSet:
       id: create-actor-movies-table
-      author: mateacademy
+      author: Mate Academy
       changes:
         - createTable:
             tableName: movies_actors
