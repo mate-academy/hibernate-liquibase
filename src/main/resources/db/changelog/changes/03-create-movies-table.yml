@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: create-movies-table
-      author: daedrus1
+      author: mateacademy
       changes:
         - createTable:
             tableName: movies
@@ -21,7 +21,7 @@ databaseChangeLog:
 
   - changeSet:
       id: create-movies-actors-table
-      author: daedrus1
+      author: mateacademy
       changes:
         - createTable:
             tableName: movies_actors

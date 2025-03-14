@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: create-actors-table
-      author: daedrus1
+      author: mateacademy
       changes:
         - createTable:
             tableName: actors
