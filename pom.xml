@@ -56,23 +56,22 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.3.0</version>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>4.22.0</version>
                 <executions>
                     <execution>
-                        <phase>compile</phase>
+                        <phase>process-resources</phase>
+                        <configuration>
+                            <propertyFile>
+                                src/main/resources/liquibase.properties
+                            </propertyFile>
+                        </configuration>
                         <goals>
-                            <goal>check</goal>
+                            <goal>update</goal>
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <configLocation>${maven.checkstyle.plugin.configLocation}</configLocation>
-                    <consoleOutput>true</consoleOutput>
-                    <failsOnError>true</failsOnError>
-                    <linkXRef>false</linkXRef>
-                </configuration>
             </plugin>
         </plugins>
         <pluginManagement>
