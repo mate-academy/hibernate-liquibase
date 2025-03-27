@@ -18,29 +18,3 @@ databaseChangeLog:
                   type: varchar(255)
                   constraints:
                     nullable: false
-
-  - changeSet:
-      id: create-movies-actors-table
-      author: mateacademy
-      changes:
-        - createTable:
-            tableName: movies_actors
-            columns:
-              - column:
-                  name: movie_id
-                  type: bigint
-                  constraints:
-                    nullable: false
-                    foreignKeyName: fk_movies_actors_movie
-                    references: movies(id)
-              - column:
-                  name: actor_id
-                  type: bigint
-                  constraints:
-                    nullable: false
-                    foreignKeyName: fk_movies_actors_actor
-                    references: actors(id)
-        - addPrimaryKey:
-            tableName: movies_actors
-            columnNames: movie_id, actor_id
-            constraintName: pk_movies_actors
