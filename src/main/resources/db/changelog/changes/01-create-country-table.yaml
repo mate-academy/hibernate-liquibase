@@ -4,7 +4,6 @@ databaseChangeLog:
       author: mateacademy
       changes:
         - createTable:
-            tableName: countries
             columns:
               - column:
                   name: id
