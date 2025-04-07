@@ -1,0 +1,25 @@
+databaseChangeLog:
+    -changeSet:
+        id: create-movie-table
+        author: Nikolya7777777
+        changes:
+          -createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoincrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country_id
+                  type: bigint
+                  constraints:
+                    nullable: false

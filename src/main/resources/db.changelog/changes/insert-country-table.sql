@@ -1,1 +1,0 @@
-INSERT INTO countries VALUES (2, "France");

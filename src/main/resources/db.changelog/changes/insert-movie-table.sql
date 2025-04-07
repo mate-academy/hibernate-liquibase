@@ -1,1 +1,0 @@
-INSERT INTO movies VALUES (2, "Pes");
