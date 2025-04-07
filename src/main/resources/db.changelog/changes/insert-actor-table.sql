@@ -1,0 +1,1 @@
+INSERT INTO actors VALUES (2, "Gnizdilov", null);
