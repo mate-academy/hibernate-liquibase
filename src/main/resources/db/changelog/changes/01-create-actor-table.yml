@@ -3,7 +3,7 @@ databaseChangeLog:
     id: create-actor-table
     author: Nikolya7777777
     changes:
-      -createTable:
+      - createTable:
         tableName: actors
         columns:
           - column:
