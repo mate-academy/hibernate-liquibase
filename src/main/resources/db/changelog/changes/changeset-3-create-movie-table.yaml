@@ -1,29 +1,21 @@
 databaseChangeLog:
   - changeSet:
-      id: 3
-      author: olha
+      id: create-movie-table
+      author: admin
       changes:
         - createTable:
-            tableName: movie
+            tableName: movies
             columns:
               - column:
                   name: id
-                  type: BIGINT
+                  type: bigint
                   autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
                   name: title
-                  type: VARCHAR(255)
-                  constraints:
-                    nullable: false
+                  type: varchar(255)
               - column:
-                  name: release_year
-                  type: INT
-              - column:
-                  name: country_id
-                  type: BIGINT
-                  constraints:
-                    foreignKeyName: fk_movie_country
-                    references: country(id)
+                  name: actors_id
+                  type: bigint

@@ -1,33 +1,26 @@
 databaseChangeLog:
   - changeSet:
-      id: 4
-      author: olha
+      id: create-movies-actors-table
+      author: admin
       changes:
         - createTable:
-            tableName: movie_actor
+            tableName: movies_actors
             columns:
               - column:
-                  name: movie_id
-                  type: BIGINT
+                  name: id
+                  type: bigint
+                  autoIncrement: true
                   constraints:
-                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_movies_actors_movies
+                    references: movies(id)
               - column:
                   name: actor_id
-                  type: BIGINT
+                  type: bigint
                   constraints:
-                    nullable: false
-        - addPrimaryKey:
-            columnNames: movie_id, actor_id
-            tableName: movie_actor
-        - addForeignKeyConstraint:
-            constraintName: fk_movie_actor_movie
-            baseColumnNames: movie_id
-            baseTableName: movie_actor
-            referencedColumnNames: id
-            referencedTableName: movie
-        - addForeignKeyConstraint:
-            constraintName: fk_movie_actor_actor
-            baseColumnNames: actor_id
-            baseTableName: movie_actor
-            referencedColumnNames: id
-            referencedTableName: actor
+                    foreignKeyName: fk_movies_actors_actors
+                    references: actors(id)

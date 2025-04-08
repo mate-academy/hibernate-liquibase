@@ -1,20 +1,17 @@
 databaseChangeLog:
   - changeSet:
-      id: 1
-      author: olha
+      id: create-country-table
+      author: admin
       changes:
         - createTable:
-            tableName: country
+            tableName: countries
             columns:
               - column:
                   name: id
-                  type: BIGINT
+                  type: bigint
                   autoIncrement: true
                   constraints:
                     primaryKey: true
-                    nullable: false
               - column:
                   name: name
-                  type: VARCHAR(255)
-                  constraints:
-                    nullable: false
+                  type: varchar(255)
