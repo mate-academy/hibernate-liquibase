@@ -9,7 +9,7 @@ databaseChangeLog:
               - column:
                   name: id
                   type: bigint
-                  autoincrement: true
+                  autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
@@ -22,4 +22,4 @@ databaseChangeLog:
                   name: country_id
                   type: bigint
                   constraints:
-                    nullable: false
+                    nullable: true
