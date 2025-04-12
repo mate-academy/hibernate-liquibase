@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-actor-table
+      author: yaroslav-pryshchepa
+      changes:
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: country_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_actors_country
+                    references: countries(id)
+        - insert:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: name
+                  value: Vin Diesel
+              - column:
+                  name: country_id
+                  value: 1
+      rollback:
+        - dropTable:
+            tableName: actors
