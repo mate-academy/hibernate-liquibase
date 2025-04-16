@@ -6,6 +6,7 @@ import mate.academy.liquibase.model.Actor;
 import mate.academy.liquibase.service.ActorService;
 
 public class ActorServiceImpl implements ActorService {
+
     private final ActorDao actorDao;
 
     public ActorServiceImpl(ActorDao actorDao) {
