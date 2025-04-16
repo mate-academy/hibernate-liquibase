@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-country-table
+      id: create-countries-table
       author: roman
       changes:
         - createTable:
-            tableName: country
+            tableName: countries
             columns:
               - column:
                   name: id

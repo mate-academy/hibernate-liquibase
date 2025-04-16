@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-actor_movie-table
+      id: create-movies_actors-table
       author: roman
       changes:
         - createTable:
-            tableName: actor_movie
+            tableName: movies_actors
             columns:
               - column:
                   name: actor_id
@@ -17,23 +17,19 @@ databaseChangeLog:
                   constraints:
                     nullable: false
 
-        - addPrimaryKey:
-            tableName: actor_movie
-            columnNames: actor_id, movie_id
-            constraintName: pk_actor_movie
-
         - addForeignKeyConstraint:
-            baseTableName: actor_movie
+            baseTableName: movies_actors
             baseColumnNames: actor_id
-            referencedTableName: actor
+            referencedTableName: actors
             referencedColumnNames: id
-            constraintName: fk_actor_movie_actor
+            constraintName: fk_movies_actors_actor
 
         - addForeignKeyConstraint:
-            baseTableName: actor_movie
+            baseTableName: movies_actors
             baseColumnNames: movie_id
-            referencedTableName: movie
+            referencedTableName: movies
             referencedColumnNames: id
-            constraintName: fk_actor_movie_movie
+            constraintName: fk_movies_actors_movies
+
 
 

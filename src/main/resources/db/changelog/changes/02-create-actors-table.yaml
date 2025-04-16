@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: create-actor-table
+      id: create-actors-table
       author: roman
       changes:
         - createTable:
-            tableName: actor
+            tableName: actors
             columns:
               - column:
                   name: id
@@ -24,9 +24,9 @@ databaseChangeLog:
                   constraints:
                     nullable: false
         - addForeignKeyConstraint:
-            baseTableName: actor
+            baseTableName: actors
             baseColumnNames: country_id
-            referencedTableName: country
+            referencedTableName: countries
             referencedColumnNames: id
-            constraintName: fk_actor_country
+            constraintName: fk_actors_countries
 
