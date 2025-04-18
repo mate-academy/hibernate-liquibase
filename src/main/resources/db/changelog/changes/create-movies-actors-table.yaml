@@ -2,10 +2,6 @@ databaseChangeLog:
   - changeSet:
       id: create-movies-actors-table
       author: letmerelax
-      preConditions:
-        - not:
-            - tableExists:
-                tableName: movies_actors
       changes:
         - createTable:
             tableName: movies_actors

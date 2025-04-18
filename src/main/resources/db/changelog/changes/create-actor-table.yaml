@@ -21,3 +21,6 @@ databaseChangeLog:
               - column:
                   name: country_id
                   type: bigint
+                  constraints:
+                    foreignKeyName: fk_actors_countries
+                    references: countries(id)
