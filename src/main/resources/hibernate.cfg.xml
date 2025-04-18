@@ -6,7 +6,6 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">q12345678910</property>
         <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.format_sql">true</property>
         <property name="hbm2ddl.auto">validate</property>
         <mapping class="mate.academy.liquibase.model.Actor"/>
         <mapping class="mate.academy.liquibase.model.Country"/>
