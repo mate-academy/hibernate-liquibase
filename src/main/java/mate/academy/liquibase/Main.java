@@ -18,7 +18,7 @@ import org.hibernate.SessionFactory;
 
 public class Main {
     public static void main(String[] args) {
-                SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
         Country usa = new Country("USA");
         CountryService countryService = new CountryServiceImpl(
