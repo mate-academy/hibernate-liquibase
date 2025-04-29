@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: addForeignKeyConstraint-movies-actors
+      author: oleksiilytvynenko
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            baseColumnNames: movie_id
+            referencedTableName: movies
+            referencedColumnNames: id
+            constraintName: fk_actor_movie
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            baseColumnNames: actor_id
+            referencedTableName: actors
+            referencedColumnNames: id
+            constraintName: fk_movie_actor
