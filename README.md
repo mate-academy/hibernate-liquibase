@@ -1,6 +1,6 @@
 # Liquibase
 
-Your task is to add the liquibase migrations changesets to this project. 
+Your task is to add the liquibase migration changesets to this project. 
 Please see the list of entities and based on them, you will understand what liquibase changesets should be added.
 
 ### Technical requirements
