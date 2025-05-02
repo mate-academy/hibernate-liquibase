@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_countries_table
+      author: bodya4243
+      changes:
+        - createTable:
+            tableName: countries
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+            remarks: Table for storing countries
