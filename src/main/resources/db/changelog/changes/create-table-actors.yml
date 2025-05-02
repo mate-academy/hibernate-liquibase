@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-actors
+      author: anton4uk
+      changes:
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: country_id
+                  type: bigint
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(256)
