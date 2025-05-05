@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: change-nullable-country-id
+      author: roman
+      changes:
+        - modifyDataType:
+            tableName: ACTORS
+            columnName: COUNTRY_ID
+            newDataType: BIGINT
+        - dropNotNullConstraint:
+            tableName: ACTORS
+            columnName: COUNTRY_ID
+            columnDataType: BIGINT
