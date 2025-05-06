@@ -1,0 +1,61 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies-table
+      author: Ihor Romaniuk
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_movies
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+            tableName: movies
+  - changeSet:
+      id: create-movies_actors-table
+      author: Ihor Romaniuk
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: actor_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: movie_id
+                  type: BIGINT
+            tableName: movies_actors
+  - changeSet:
+      id: add-foreign-key-actor_id
+      author: Ihor Romaniuk
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: actor_id
+            baseTableName: movies_actors
+            constraintName: fk_movact_on_actor
+            referencedColumnNames: id
+            referencedTableName: actors
+  - changeSet:
+      id: add-foreign-key-movie_id
+      author: Ihor Romaniuk
+      objectQuotingStrategy: QUOTE_ONLY_RESERVED_WORDS
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: movie_id
+            baseTableName: movies_actors
+            constraintName: fk_movact_on_movie
+            referencedColumnNames: id
+            referencedTableName: movies
+
