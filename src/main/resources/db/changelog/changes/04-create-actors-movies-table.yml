@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-actors-movies-table
+      author: mateacademy
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: actor_id
+                    references: actors(id)
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: movie_id
+                    references: movies(id)
