@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies_actors-table
+      author: mate.academy
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: movie_id
+                  type: BIGINT
+              - column:
+                  name: actor_id
+                  type: BIGINT
