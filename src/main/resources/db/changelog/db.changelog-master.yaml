@@ -1,0 +1,108 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: admin
+      changes:
+        - createTable:
+            tableName: countries
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 2
+      author: admin
+      changes:
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country_id
+                  type: BIGINT
+                  remarks: "FK to countries.id"
+
+        - addForeignKeyConstraint:
+            baseTableName: actors
+            baseColumnNames: country_id
+            constraintName: fk_actors_country
+            referencedTableName: countries
+            referencedColumnNames: id
+
+  - changeSet:
+      id: 3
+      author: admin
+      changes:
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 4
+      author: admin
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: actor_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+
+        - addPrimaryKey:
+            tableName: movies_actors
+            columnNames: movie_id, actor_id
+            constraintName: pk_movies_actors
+
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            baseColumnNames: movie_id
+            constraintName: fk_movies_actors_movie
+            referencedTableName: movies
+            referencedColumnNames: id
+
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            baseColumnNames: actor_id
+            constraintName: fk_movies_actors_actor
+            referencedTableName: actors
+            referencedColumnNames: id
