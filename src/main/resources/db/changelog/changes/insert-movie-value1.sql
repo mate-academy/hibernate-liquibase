@@ -1,0 +1,1 @@
+insert into movies (title) values ('Fast and Furious');
