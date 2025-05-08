@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-country-table
+      author: yaroslav-pryshchepa
+      changes:
+        - createTable:
+            tableName: countries
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+        - insert:
+            tableName: countries
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: name
+                  value: USA
+      rollback:
+        - dropTable:
+            tableName: countries

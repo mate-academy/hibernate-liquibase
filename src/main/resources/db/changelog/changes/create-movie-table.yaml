@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movie-table
+      author: yaroslav-pryshchepa
+      changes:
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+        - insert:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: title
+                  value: Fast and Furious
+      rollback:
+        - dropTable:
+            tableName: movies
