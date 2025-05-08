@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-foreign-keys-for-fields-movie_id-and-actor_id
+      author: Krasnov-Maksim
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            baseColumnNames: movie_id
+            referencedTableName: movies
+            referencedColumnNames: id
+            constraintName: fk_movies_actors_to_movies
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            baseColumnNames: actor_id
+            referencedTableName: actors
+            referencedColumnNames: id
+            constraintName: fk_movies_actors_to_actors
