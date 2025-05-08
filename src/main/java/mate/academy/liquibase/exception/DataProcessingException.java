@@ -13,7 +13,7 @@ public class DataProcessingException extends RuntimeException {
 
     public static Supplier<DataProcessingException> findByIdSupplier(Long id, Class<?> clazz) {
         return () -> new DataProcessingException(
-                "Can't find an %s by id %s".formatted(clazz.getName().toLowerCase(), id)
+                String.format("Can't find an %s by id %s", clazz.getName().toLowerCase(), id)
         );
     }
 }
