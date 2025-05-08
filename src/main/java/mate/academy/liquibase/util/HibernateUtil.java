@@ -21,12 +21,15 @@ public class HibernateUtil {
     }
 
     public static SessionFactory initSessionFactory() {
-        runLiquibaseUpdate();
-        return new Configuration().configure().buildSessionFactory();
+        try {
+            runLiquibaseUpdate();
+            return new Configuration().configure().buildSessionFactory();
+        } catch (Exception e) {
+            throw new RuntimeException("Error creating SessionFactory", e);
+        }
     }
 
     private static void runLiquibaseUpdate() {
-        // You might need to adjust this depending on your setup
         String changelogFile = "db/changelog/db.changelog-master.yaml";
         String liquibasePropertiesPath = "liquibase.properties";
 
@@ -47,8 +50,7 @@ public class HibernateUtil {
                         .findCorrectDatabaseImplementation(new JdbcConnection(connection));
 
                 Liquibase liquibase = new Liquibase(
-                        changelogFile, new ClassLoaderResourceAccessor(), database
-                );
+                        changelogFile, new ClassLoaderResourceAccessor(), database);
                 liquibase.update(new Contexts());
             }
         } catch (Exception e) {
