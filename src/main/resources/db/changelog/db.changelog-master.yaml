@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: "db/changelog/changes/actor-changelog.yaml"
+  - include:
+      file: "db/changelog/changes/country-changelog.yaml"
+  - include:
+      file: "db/changelog/changes/movie-changelog.yaml"
+  - include:
+      file: "db/changelog/changes/movie_actor-changelog.yaml"
