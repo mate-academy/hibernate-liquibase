@@ -38,17 +38,15 @@ public class HibernateUtil {
             }
             liquibaseProps.load(input);
 
-            try (Connection connection = DriverManager.getConnection(
-                    liquibaseProps.getProperty("url"),
-                    liquibaseProps.getProperty("username"),
+            try (Connection connection = DriverManager.getConnection(liquibaseProps
+                    .getProperty("url"), liquibaseProps.getProperty("username"),
                     liquibaseProps.getProperty("password"))) {
 
                 Database database = DatabaseFactory.getInstance()
                         .findCorrectDatabaseImplementation(new JdbcConnection(connection));
 
-                Liquibase liquibase = new Liquibase(
-                        changelogFile, new ClassLoaderResourceAccessor(), database
-                );
+                Liquibase liquibase = new Liquibase(changelogFile,
+                        new ClassLoaderResourceAccessor(), database);
                 liquibase.update(new Contexts());
             }
         } catch (Exception e) {
