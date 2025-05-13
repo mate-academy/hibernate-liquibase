@@ -20,7 +20,7 @@ databaseChangeLog:
                   type: VARCHAR(255)
                   constraints:
                     nullable: false
-                    unique: true # Country names should typically be unique
+#                    unique: true # Country names should typically be unique
 
         # Create actors table
         - createTable:
