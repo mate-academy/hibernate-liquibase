@@ -1,0 +1,78 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20250513-1
+      author: your_name (e.g., your_username)
+      comment: Initial schema creation for Country, Actor, and Movie entities.
+      changes:
+        # Create countries table
+        - createTable:
+            tableName: countries
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+                    unique: true # Country names should typically be unique
+
+        # Create actors table
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country_id # Foreign key to countries table
+                  type: BIGINT
+                  constraints:
+                    nullable: true # An actor must belong to a country
+
+        # Create movies table
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+                    unique: true # Movie titles might also be unique, or at least unique per year, but for simplicity, just unique for now.
+
+        # Create join table for Many-to-Many relationship: movies_actors
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: actor_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
