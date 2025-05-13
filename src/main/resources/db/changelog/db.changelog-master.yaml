@@ -1,3 +1,13 @@
 databaseChangeLog:
   - include:
-      file: db/changelog/changes/01-changeset-initial_shema.yml
+      file: changes/01-changeset-table_countries.yml
+      relativeToChangelogFile: true
+  - include:
+      file: changes/02-changeset-table_actors.yml
+      relativeToChangelogFile: true
+  - include:
+      file: changes/03-changeset-table_movies.yml
+      relativeToChangelogFile: true
+  - include:
+      file: changes/04-changeset-table_movies_actors.yml
+      relativeToChangelogFile: true

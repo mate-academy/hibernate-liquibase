@@ -1,5 +1,6 @@
 package mate.academy.liquibase.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -18,6 +19,7 @@ public class Movie implements Cloneable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column
     private String title;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "movies_actors",
