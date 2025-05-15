@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 1
+      id: actors-table
       author: marzab
       changes:
         - createTable:
@@ -8,24 +8,20 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  type: BIGINT AUTO_INCREMENT
+                  type: bigint
+                  autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
                   name: name
-                  type: VARCHAR(255)
+                  type: varchar(255)
                   constraints:
                     nullable: false
               - column:
                   name: country_id
-                  type: BIGINT
+                  type: bigint
                   constraints:
-        - addForeignKeyConstraint:
-            basedTableName: actors
-            basedColumnName: country_id
-            constraintName: fk_actors_country
-            referencedTableName: countries
-            referencedColumnName: id
+                    nullable: true
 
 
