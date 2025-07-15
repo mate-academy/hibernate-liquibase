@@ -38,5 +38,6 @@ public class Main {
                 new MovieDaoImpl(sessionFactory)); // TODO: initialize this instance
         movieService.save(fastAndFurious);
         System.out.println(movieService.get(fastAndFurious.getId()));
+
     }
 }
