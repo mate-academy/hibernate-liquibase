@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movie-table
+      author: someGuy
+      changes:
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: bigInt
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: actors
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
