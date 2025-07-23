@@ -1,18 +1,18 @@
 databaseChangeLog:
   - changeSet:
-    id: 03-create-movies-table
-    author: SukhachovS
-    changes:
-      - createTable:
-        tableName: movies
-        columns:
-          - column:
-            name: id
-            type: bigint
-            autoIncrement: true
-            constraints:
-              primaryKey: true
-              nullable: false
-          - column:
-            name: title
-            type: varchar(255)
+      id: 03-create-movies-table
+      author: SukhachovS
+      changes:
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(255)
