@@ -1,34 +1,34 @@
 databaseChangeLog:
   - changeSet:
-      id: 04-create-movies-actors-table
-      author: SukhachovS
-      changes:
-        - createTable:
-            tableName: movies_actors
-            columns:
-              - column:
-                  name: movie_id
-                  type: bigint
-                  constraints:
-                    nullable: false
-              - column:
-                  name: actor_id
-                  type: bigint
-                  constraints:
-                    nullable: false
+    id: 04-create-movies-actors-table
+    author: SukhachovS
+    changes:
+      - createTable:
+        tableName: movies_actors
+        columns:
+          - column:
+            name: movie_id
+            type: bigint
             constraints:
-              - primaryKey:
-                  name: pk_movies_actors
-                  columns: movie_id,actor_id
+            nullable: false
+          - column:
+           name: actor_id
+           type: bigint
+           constraints:
+           nullable: false
+        constraints:
+          - primaryKey:
+              name: pk_movies_actors
+              columns: movie_id,actor_id
         - addForeignKeyConstraint:
-            baseTableName: movies_actors
-            baseColumnNames: movie_id
-            referencedTableName: movies
-            referencedColumnNames: id
-            constraintName: fk_movies_actors_movie
+          baseTableName: movies_actors
+          baseColumnNames: movie_id
+          referencedTableName: movies
+          referencedColumnNames: id
+          constraintName: fk_movies_actors_movie
         - addForeignKeyConstraint:
-            baseTableName: movies_actors
-            baseColumnNames: actor_id
-            referencedTableName: actors
-            referencedColumnNames: id
-            constraintName: fk_movies_actors_actor
+          baseTableName: movies_actors
+          baseColumnNames: actor_id
+          referencedTableName: actors
+          referencedColumnNames: id
+          constraintName: fk_movies_actors_actor
