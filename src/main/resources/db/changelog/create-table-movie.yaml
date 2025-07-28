@@ -14,9 +14,8 @@ databaseChangeLog:
                     primaryKey: true
 
               - column:
-                  name: name
+                  name: title
                   type: VARCHAR(255)
                   constraints:
                     nullable: false
-
       
