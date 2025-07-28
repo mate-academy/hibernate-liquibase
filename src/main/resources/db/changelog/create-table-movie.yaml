@@ -1,18 +1,22 @@
 databaseChangeLog:
   - changeSet:
-    author: skviropitek
-    changes:
-      - createTable:
-          tableName: movies
-          columns:
-            - column:
-                name: id
-                type: BIGINT AUTO_INCREMENT
-                constraints:
-                  primaryKey: true
-            - column:
-                name: name
-                type: VARCHAR(255)
-                constraints:
-                  nullable: false
+      id: 3
+      author: skviropitek
+      changes:
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+
       

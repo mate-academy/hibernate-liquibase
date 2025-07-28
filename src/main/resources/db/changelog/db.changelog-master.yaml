@@ -3,3 +3,5 @@ databaseChangeLog:
       file: db/changelog/create-table-country.yaml
   - include:
       file: db/changelog/create-table-author.yaml
+  - include:
+      file: db/changelog/create-table-movie.yaml
