@@ -1,9 +1,0 @@
-databaseChangeLog:
-  - include:
-      file: create-table-country.yaml
-  - include:
-      file: create-table-actor.yaml
-  - include:
-      file: create-table-movie.yaml
-  - include:
-      file: create-table-movies_actors.yaml
