@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - include:
+      file: changes/create-country-table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: changes/create-actor-table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: changes/create-movie-table.sql
+      relativeToChangelogFile: true
+  - include:
+      file: changes/create-movie-actor-table.sql
+      relativeToChangelogFile: true
+
+  - changeSet:
+      id: insert-test-data
+      author: max
+      sqlFile:
+        path: changes/insert-test-data.sql
+        relativeToChangelogFile: true
+        splitStatements: true
+        endDelimiter: ";"
