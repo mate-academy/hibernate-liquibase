@@ -1,22 +1,9 @@
 databaseChangeLog:
   - include:
-      file: changes/create-country-table.sql
-      relativeToChangelogFile: true
+      file: db/changelog/changes/create-movies_actors-table.yml
   - include:
-      file: changes/create-actor-table.sql
-      relativeToChangelogFile: true
+      file: db/changelog/changes/create-country-table.yml
   - include:
-      file: changes/create-movie-table.sql
-      relativeToChangelogFile: true
+      file: db/changelog/changes/create-actors-table.yml
   - include:
-      file: changes/create-movie-actor-table.sql
-      relativeToChangelogFile: true
-
-  - changeSet:
-      id: insert-test-data
-      author: max
-      sqlFile:
-        path: changes/insert-test-data.sql
-        relativeToChangelogFile: true
-        splitStatements: true
-        endDelimiter: ";"
+      file: db/changelog/changes/create-movie-table.yml
