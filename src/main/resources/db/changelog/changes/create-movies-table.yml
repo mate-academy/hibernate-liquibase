@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 04-create-movies-table
+      id: create-movies-table
       author:  liudmylabiletska
       changes:
         - createTable:

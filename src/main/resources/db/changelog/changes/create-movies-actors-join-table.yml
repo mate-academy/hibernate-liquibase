@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
-      id: 03-create-movies-actors-table
-      author:  liudmylabiletska
+      id: create-movies-actors-join-table
+      author: liudmylabiletska
       changes:
         - createTable:
             tableName: movies_actors
@@ -28,3 +28,7 @@ databaseChangeLog:
             constraintName: fk_actor
             referencedTableName: actors
             referencedColumnNames: id
+        - addPrimaryKey:
+            columnNames: movie_id, actor_id
+            constraintName: pk_movies_actors
+            tableName: movies_actors
