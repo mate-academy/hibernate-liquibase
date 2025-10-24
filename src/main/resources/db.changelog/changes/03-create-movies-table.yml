@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies-table
+      author: username
+      changes:
+        - insert:
+            tableName: movies
+            columns:
+              - column:
+                  name: title
+                  value: exampleMovie
+              - column:
+                  name: actors
+                  value: exampleActors
