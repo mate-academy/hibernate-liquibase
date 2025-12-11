@@ -20,28 +20,45 @@
     </properties>
 
     <dependencies>
+        <!-- ======================== -->
+        <!-- Тестування -->
+        <!-- ======================== -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- HSQLDB для in-memory тестів -->
         <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>2.7.1</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- ======================== -->
+        <!-- Hibernate Core -->
+        <!-- ======================== -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>6.2.7.Final</version>
         </dependency>
+
+        <!-- ======================== -->
+        <!-- MySQL для продакшн -->
+        <!-- ======================== -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
         </dependency>
+
+        <!-- ======================== -->
+        <!-- Liquibase -->
+        <!-- ======================== -->
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
@@ -51,6 +68,9 @@
 
     <build>
         <plugins>
+            <!-- ======================== -->
+            <!-- Checkstyle -->
+            <!-- ======================== -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -71,12 +91,15 @@
                 </configuration>
             </plugin>
 
+            <!-- ======================== -->
             <!-- Liquibase Maven Plugin -->
+            <!-- ======================== -->
             <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>${liquibase.version}</version>
                 <configuration>
+                    <!-- Для продакшн бази в src/main/resources -->
                     <propertyFile>src/main/resources/liquibase.properties</propertyFile>
                 </configuration>
             </plugin>
