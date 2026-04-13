@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-actor-table
+      author: me
+      changes:
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: true
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: country_id
+                  type: bigint
+                  constraints:
+                    nullable: true
+                    foreignKeyName: fk_actor_country
+                    referencedTableName: countries
+                    referencedColumnNames: id
