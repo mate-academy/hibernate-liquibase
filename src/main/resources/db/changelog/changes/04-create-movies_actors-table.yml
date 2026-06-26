@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies_actors-table
+      author: ReduxR
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_movie_id
+                    referencedTableName: movies
+                    referencedColumnNames: id
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_actor_id
+                    referencedTableName: actors
+                    referencedColumnNames: id
+                    
