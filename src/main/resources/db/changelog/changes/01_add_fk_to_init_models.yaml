@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-fk
+      author: acor
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: actors
+            baseColumnNames: country_id
+            referencedTableName: countries
+            referencedColumnNames: id
+            constraintName: fk_actors_countries
+        - createTable:
+              tableName: movies_actors
+              columns:
+                  - column:
+                        name: movie_id
+                        type: BIGINT
+                  - column:
+                        name: actor_id
+                        type: BIGINT
+        - addPrimaryKey:
+              tableName: movies_actors
+              columnNames: movie_id, actor_id
+              constraintName: pk_movies_actors
