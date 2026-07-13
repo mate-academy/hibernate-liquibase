@@ -1,0 +1,12 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: add-movies-tables
+      author: artem
+
+      changes:
+        - renameColumn:
+            tableName: movies
+            oldColumnName: movie_actors
+            newColumnName: movies_actors
+            columnDataType: VARCHAR(255)
