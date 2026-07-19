@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: create-countries-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create-actors-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create-movies-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create-movies-actors-table.yaml
+      relativeToChangelogFile: true
