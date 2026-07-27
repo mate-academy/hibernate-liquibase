@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-movies-actors
+      author: maxima
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    references: movies(id)
+                    foreignKeyName: fk_movies_actors_movie
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    references: actors(id)
+                    foreignKeyName: fk_movies_actors_actor
