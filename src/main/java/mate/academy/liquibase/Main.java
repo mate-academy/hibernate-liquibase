@@ -32,7 +32,7 @@ public class Main {
                 new ActorDaoImpl(sessionFactory)); // TODO: initialize this instance
         actorService.save(vinDiesel);
 
-        Movie fastAndFurious = new Movie("Fast and Furious");
+        Movie fastAndFurious = new Movie("Fast and Furious 2");
         fastAndFurious.setActors(List.of(vinDiesel));
         MovieService movieService = new MovieServiceImpl(
                 new MovieDaoImpl(sessionFactory)); // TODO: initialize this instance
