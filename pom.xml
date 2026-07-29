@@ -74,6 +74,12 @@
                     <linkXRef>false</linkXRef>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-core</artifactId>
+                <version>4.22.0</version>
+            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
