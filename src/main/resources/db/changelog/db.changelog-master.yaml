@@ -1,0 +1,7 @@
+databaseChangeLog:
+    - include:
+          file: changes/00_init_models_data.yaml
+          relativeToChangelogFile: true
+    - include:
+        file: changes/01_add_fk_to_init_models.yaml
+        relativeToChangelogFile: true

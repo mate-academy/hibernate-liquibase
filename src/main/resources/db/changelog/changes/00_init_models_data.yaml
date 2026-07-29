@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-tables
+      author: acor
+      changes:
+        - createTable:
+            tableName: countries
+            columns:
+              - column:
+                  autoIncrement: true
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(64)
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  autoIncrement: true
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(64)
+              - column:
+                  name: country_id
+                  type: BIGINT
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  autoIncrement: true
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(64)
