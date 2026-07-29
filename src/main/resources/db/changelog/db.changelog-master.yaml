@@ -1,0 +1,93 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-countries-table
+      author: YKorniienkova
+      changes:
+        - createTable:
+            tableName: countries
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+
+  - changeSet:
+      id: create-actors-table
+      author: YKorniienkova
+      changes:
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: country_id
+                  type: bigint
+        - addForeignKeyConstraint:
+            baseTableName: actors
+            baseColumnNames: country_id
+            referencedTableName: countries
+            referencedColumnNames: id
+            constraintName: fk_actor_country
+
+  - changeSet:
+      id: create-movies-table
+      author: YKorniienkova
+      changes:
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(255)
+
+  - changeSet:
+      id: create-movies-actors-table
+      author: YKorniienkova
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            baseColumnNames: movie_id
+            referencedTableName: movies
+            referencedColumnNames: id
+            constraintName: fk_movies_actors_movie
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            baseColumnNames: actor_id
+            referencedTableName: actors
+            referencedColumnNames: id
+            constraintName: fk_movies_actors_actor
