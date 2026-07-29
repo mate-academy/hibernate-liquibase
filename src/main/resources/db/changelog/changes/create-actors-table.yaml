@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-actors-table
+      author: mate-academy
+      changes:
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: country_id
+                  type: bigint
+                  constraints:
+                    nullable: true
+                    foreignKeyName: fk_actors_country
+                    references: countries(id)
