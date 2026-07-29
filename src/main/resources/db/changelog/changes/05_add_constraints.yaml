@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-constraints-and-foreign-keys
+      author: hibernate-liquibase
+      changes:
+        - addPrimaryKey:
+            tableName: movies_actors
+            columnNames: movie_id, actor_id
+            constraintName: pk_movies_actors
+        - addForeignKeyConstraint:
+            baseTableName: actors
+            baseColumnNames: country_id
+            constraintName: fk_actors_countries
+            referencedTableName: countries
+            referencedColumnNames: id
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            baseColumnNames: movie_id
+            constraintName: fk_ma_movies
+            referencedTableName: movies
+            referencedColumnNames: id
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            baseColumnNames: actor_id
+            constraintName: fk_ma_actors
+            referencedTableName: actors
+            referencedColumnNames: id
