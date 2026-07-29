@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 03-create-movies-table
+      author: dima
+      changes:
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_movies
+                    nullable: false
+
+              - column:
+                  name: title
+                  type: VARCHAR(255)

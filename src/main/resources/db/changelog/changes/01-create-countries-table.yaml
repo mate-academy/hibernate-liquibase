@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 01-create-countries-table
+      author: dima
+      changes:
+        - createTable:
+            tableName: countries
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_countries
+                    nullable: false
+
+              - column:
+                  name: name
+                  type: VARCHAR(255)
