@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-users-table
+      author: lentez
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+              - column:
+                  name: actor_id
+                  type: bigint
