@@ -1,0 +1,92 @@
+databaseChangeLog:
+  # 1. Таблиця для країн
+  - changeSet:
+      id: create-countries-table
+      author: lyna
+      changes:
+        - createTable:
+            tableName: countries
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+
+  # 2. Таблиця для акторів
+  - changeSet:
+      id: create-actors-table
+      author: lyna
+      changes:
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: country_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_actors_countries
+                    referencedTableName: countries
+                    referencedColumnNames: id
+
+  # 3. Таблиця для фільмів
+  - changeSet:
+      id: create-movies-table
+      author: lyna
+      changes:
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(255)
+
+  # 4. Проміжна таблиця для ManyToMany зв'язку (фільми та актори)
+  - changeSet:
+      id: create-movies-actors-table
+      author: lyna
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_movies_actors_movies
+                    referencedTableName: movies
+                    referencedColumnNames: id
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_movies_actors_actors
+                    referencedTableName: actors
+                    referencedColumnNames: id
+        - addPrimaryKey:
+            tableName: movies_actors
+            columnNames: movie_id, actor_id
