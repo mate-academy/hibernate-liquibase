@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: 04-create-movie-sessions-table
+      author: twoje_imie
+      changes:
+        - createTable:
+            tableName: movie_sessions
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_movie_sessions_movies
+                    referencedTableName: movies
+                    referencedColumnNames: id
+              - column:
+                  name: cinema_hall_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_movie_sessions_cinema_halls
+                    referencedTableName: cinema_halls
+                    referencedColumnNames: id
+              - column:
+                  name: show_time
+                  type: datetime
+                  constraints:
+                    nullable: false

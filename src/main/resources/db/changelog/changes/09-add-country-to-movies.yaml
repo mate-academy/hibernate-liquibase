@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 09-add-country-to-movies
+      author: twoje_imie
+      changes:
+        - addColumn:
+            tableName: movies
+            columns:
+              - column:
+                  name: country_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_movies_countries
+                    referencedTableName: countries
+                    referencedColumnNames: id
