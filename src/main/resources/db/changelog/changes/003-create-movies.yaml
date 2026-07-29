@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-create-movies-table
+      author: Krupko Illia
+      changes:
+      - createTable:
+          tableName: movies
+          columns:
+            - column:
+                name: id
+                type: BIGINT
+                autoIncrement: true
+                constraints:
+                  primaryKey: true
+                  nullable: false
+            - column:
+                name: title
+                type: VARCHAR(255)
