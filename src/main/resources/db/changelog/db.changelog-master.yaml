@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset-actor.yml
+  - include:
+      file: db/changelog/changeset-country.yml
+  - include:
+      file: db/changelog/changeset-movie.yml
+  - include:
+      file: db/changelog/changeset-movie-actor-join-table.yml
