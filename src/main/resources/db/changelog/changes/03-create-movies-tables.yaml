@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies-and-join-tables
+      author: obvly
+      changes:
+        - createTable:
+            tableName: movies
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+
+
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_movies_actors_movie
+                    referencedTableName: movies
+                    referencedColumnNames: id
+              - column:
+                  name: actor_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_movies_actors_actor
+                    referencedTableName: actors
+                    referencedColumnNames: id
