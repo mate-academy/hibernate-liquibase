@@ -1,0 +1,39 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movie-table
+      author: Nikita Myroniuk
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+
+-changeSet:
+    id: create-movies-actors-join-table
+    author: Nikita Myroniuk
+    changes:
+      - createTable:
+          tableName: movies_actors
+          columns:
+            - column:
+                name: movie_id
+                type: bigint
+                constraints:
+                  nullable: false
+            - column:
+                name: actor_id
+                type: bigint
+                constraints:
+                  nullable: false
+
