@@ -23,7 +23,7 @@ databaseChangeLog:
                   name: country_id
                   type: bigint
                   constraints:
-                    nullable: false
+                    nullable: true
 
 changeSet:
     id: add-foreign-key-actors-to-countries
