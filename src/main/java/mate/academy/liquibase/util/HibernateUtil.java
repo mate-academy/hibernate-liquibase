@@ -28,11 +28,11 @@ public class HibernateUtil {
     private static void runLiquibaseUpdate() {
         // You might need to adjust this depending on your setup
         String changelogFile = "db/changelog/db.changelog-master.yaml";
-        String liquibasePropertiesPath = "liquibase.properties";
+        String liquibasePropertiesPath = "src/main/resources/liquibase.properties";
 
         Properties liquibaseProps = new Properties();
         try (InputStream input = HibernateUtil.class.getClassLoader()
-                .getResourceAsStream(liquibasePropertiesPath)) {
+                                         .getResourceAsStream(liquibasePropertiesPath)) {
             if (input == null) {
                 throw new RuntimeException("Unable to find liquibase.properties");
             }
@@ -44,7 +44,8 @@ public class HibernateUtil {
                     liquibaseProps.getProperty("password"))) {
 
                 Database database = DatabaseFactory.getInstance()
-                        .findCorrectDatabaseImplementation(new JdbcConnection(connection));
+                                            .findCorrectDatabaseImplementation(
+                                                    new JdbcConnection(connection));
 
                 Liquibase liquibase = new Liquibase(
                         changelogFile, new ClassLoaderResourceAccessor(), database
