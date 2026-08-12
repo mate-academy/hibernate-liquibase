@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies-actors-join-table
+      author: root
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_movies_actors_movie
+                    references: movies(id)
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_movies_actors_actor
+                    references: actors(id)
+        - addUniqueConstraint:
+            tableName: movies_actors
+            constraintName: uq_movies_actors
+            columnNames: movie_id, actor_id
