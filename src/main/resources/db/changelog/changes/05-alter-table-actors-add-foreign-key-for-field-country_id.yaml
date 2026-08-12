@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-foreign-key-for-field-country_id
+      author: Krasnov-Maksim
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: actors
+            baseColumnNames: country_id
+            referencedTableName: countries
+            referencedColumnNames: id
+            constraintName: fk_actors_to_countries
