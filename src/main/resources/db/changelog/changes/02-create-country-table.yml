@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: 02-create_country_table
+      author: arsen
+      changes:
+        - createTable:
+            tableName: "countries"
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
