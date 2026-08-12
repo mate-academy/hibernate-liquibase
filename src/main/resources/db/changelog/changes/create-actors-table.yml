@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-actors-table
+      author: denis
+      changes:
+        - createTable:
+            tableName: actors
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+              - column:
+                  name: country_id
+                  type: bigint
+        - addForeignKeyConstraint:
+            baseTableName: actors
+            baseColumnNames: country_id
+            constraintName: fk_actors_country
+            referencedTableName: countries
+            referencedColumnNames: id
+            onDelete: CASCADE
+            onUpdate: CASCADE
