@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: mate academy
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: BIGINT
+              - column:
+                  name: actor_id
+                  type: BIGINT
+              - addPrimaryKey:
+                  columnNames: "movie_id,actor_id"
+              - addForeignKeyConstraint:
+                  baseTableName: movies_actors
+                  baseColumnNames: movie_id
+                  referencedTable: movies
+                  referencedColumnNames: id
+                  constraintName: FK_Movie_Actor
+              - addForeignKeyConstraint:
+                  baseTableName: movies_actors
+                  baseColumnNames: actor_id
+                  referencedTable: actors
+                  referencedColumnNames: id
+                  constraintName: FK_Actor_Movie
