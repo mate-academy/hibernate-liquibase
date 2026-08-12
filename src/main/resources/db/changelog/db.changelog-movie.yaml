@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: your_name
+      comment: Create Movie table
+      createTable:
+        tableName: movies
+        columns:
+          - column:
+              name: id
+              type: bigint
+              autoIncrement: true
+              constraints:
+                primaryKey: true
+          - column:
+              name: title
+              type: varchar(255)
+          # Add more columns as needed
+
+  - changeSet:
+      id: 4
+      author: your_name
+      comment: Create movies_actors table for the many-to-many relationship
+      createTable:
+        tableName: movies_actors
+        columns:
+          - column:
+              name: movie_id
+              type: bigint
+              constraints:
+                foreignKeyName: fk_movies_actors_movie
+                references: movies(id)
+          - column:
+              name: actor_id
+              type: bigint
+              constraints:
+                foreignKeyName: fk_movies_actors_actor
+                references: actors(id)
