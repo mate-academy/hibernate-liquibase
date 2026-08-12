@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-mov-act-foreign-key
+      author: mateacademy
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            baseColumnNames: movie_id
+            referencedTableName: movies
+            referencedColumnNames: id
+            constraintName: fk_movies_actors_movies
+        - addForeignKeyConstraint:
+            baseTableName: movies_actors
+            baseColumnNames: actor_id
+            referencedTableName: actors
+            referencedColumnNames: id
+            constraintName: fk_movies_actors_actors
