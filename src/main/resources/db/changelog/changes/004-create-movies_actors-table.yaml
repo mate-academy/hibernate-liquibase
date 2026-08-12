@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0004-create-movies_actors-table.yaml
+      author: olkhovskyi.anatolii
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_movie_actor
+                    foreignKeyName: fk_actor_actor
+                    referencedTableName: actors
+                    referencedColumnNames: id
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_movie_actor
+                    foreignKeyName: fk_movie_movie
+                    referencedTableName: movies
+                    referencedColumnNames: id
