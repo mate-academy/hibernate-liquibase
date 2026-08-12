@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: delete movies_actors
+      author: dsumaroka
+      changes:
+        - dropTable:
+            tableName: movies_actors
