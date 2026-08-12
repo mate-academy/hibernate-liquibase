@@ -130,7 +130,6 @@ public abstract class AbstractTest {
             } catch (LiquibaseException | SQLException e) {
                 throw new RuntimeException("Failed to run liquibase", e);
             }
-
             return dataSource;
         }
 
