@@ -27,7 +27,6 @@ public class HibernateUtil {
 
     private static void runLiquibaseUpdate() {
         // You might need to adjust this depending on your setup
-        String changelogFile = "db/changelog/db.changelog-master.yaml";
         String liquibasePropertiesPath = "liquibase.properties";
 
         Properties liquibaseProps = new Properties();
@@ -46,8 +45,9 @@ public class HibernateUtil {
                 Database database = DatabaseFactory.getInstance()
                         .findCorrectDatabaseImplementation(new JdbcConnection(connection));
 
-                Liquibase liquibase = new Liquibase(
-                        changelogFile, new ClassLoaderResourceAccessor(), database
+                Liquibase liquibase =
+                        new Liquibase(liquibaseProps.getProperty("changeLogFile"),
+                                new ClassLoaderResourceAccessor(), database
                 );
                 liquibase.update(new Contexts());
             }
