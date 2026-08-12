@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies-actors-table
+      author: gulini
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+              - column:
+                  name: actor_id
+                  type: bigint
+
