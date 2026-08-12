@@ -17,6 +17,7 @@
         <maven.checkstyle.plugin.configLocation>
             https://raw.githubusercontent.com/mate-academy/style-guides/master/java/checkstyle.xml
         </maven.checkstyle.plugin.configLocation>
+        <liquibase.version>4.22.0</liquibase.version> <!-- Объявляем версию плагина -->
     </properties>
 
     <dependencies>
@@ -45,16 +46,27 @@
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
-            <version>4.22.0</version>
+            <version>${liquibase.version}</version>
         </dependency>
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-maven-plugin</artifactId>
-            <version>4.22.0</version>
+            <version>${liquibase.version}</version>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
+            <!-- Liquibase Maven Plugin -->
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>${liquibase.version}</version>
+                <configuration>
+                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -75,6 +87,7 @@
                 </configuration>
             </plugin>
         </plugins>
+
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -85,14 +98,6 @@
                         <source>${jdk.version}</source>
                         <target>${jdk.version}</target>
                         <encoding>${project.build.sourceEncoding}</encoding>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.liquibase</groupId>
-                    <artifactId>liquibase-maven-plugin</artifactId>
-                    <version>${liquibase.version}</version>
-                    <configuration>
-                        <propertyFile>src/main/resources/liquibase.properties</propertyFile>
                     </configuration>
                 </plugin>
             </plugins>
