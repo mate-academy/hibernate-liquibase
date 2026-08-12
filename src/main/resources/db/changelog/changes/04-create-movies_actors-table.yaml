@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies_actors-table
+      author: Pavlo Sukhanko
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: actor_id
+                  type: bigint
+                  autoIncrement: false
+                  constraints:
+                    nullable: true
