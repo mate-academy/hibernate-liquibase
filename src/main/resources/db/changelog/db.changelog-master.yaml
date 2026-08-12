@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - property:
+      name: author
+      value: yurii.keniu
+
+  - include:
+      file: db/changelog/create-tables.yaml
