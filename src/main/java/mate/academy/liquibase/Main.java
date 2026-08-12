@@ -24,13 +24,13 @@ public class Main {
         Country usa = new Country("USA");
         CountryService countryService = new CountryServiceImpl(
                 new CountryDaoImpl(sessionFactory)); // TODO: initialize this instance
-        countryService.save(usa);
+        System.out.println(countryService.save(usa));
 
         Actor vinDiesel = new Actor("Vin Diesel");
         vinDiesel.setCountry(usa);
         ActorService actorService = new ActorServiceImpl(
                 new ActorDaoImpl(sessionFactory)); // TODO: initialize this instance
-        actorService.save(vinDiesel);
+        System.out.println(actorService.save(vinDiesel));
 
         Movie fastAndFurious = new Movie("Fast and Furious");
         fastAndFurious.setActors(List.of(vinDiesel));
