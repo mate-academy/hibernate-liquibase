@@ -1,0 +1,1 @@
+alter table movies_actors add constraint FKi17y5929b8lhmtay3g1wo76e2 foreign key (movie_id) references movies (id)
