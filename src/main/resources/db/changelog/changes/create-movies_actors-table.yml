@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-movies_actors-table
+      author: root
+      changes:
+        - createTable:
+            tableName: movies_actors
+            columns:
+              - column:
+                  name: movie_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_movies_actors
+              - column:
+                  name: actor_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: pk_movies_actors
+                  # Зовнішній ключ до таблиці movies
+              - addForeignKeyConstraint:
+                  baseTableName: movies_actors
+                  baseColumnNames: movie_id
+                  constraintName: fk_movies_actors_movie
+                  referencedTableName: movies
+                  referencedColumnNames: id
+                  onDelete: CASCADE
+                 # Зовнішній ключ до таблиці actors
+              - addForeignKeyConstraint:
+                  baseTableName: movies_actors
+                  baseColumnNames: actor_id
+                  constraintName: fk_movies_actors_actor
+                  referencedTableName: actors
+                  referencedColumnNames: id
+                  onDelete: CASCADE
