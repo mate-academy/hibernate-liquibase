@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: make-actor-country-nullable
+      author: inna
+      changes:
+        - dropNotNullConstraint:
+            tableName: actors
+            columnName: country_id
+            columnDataType: bigint

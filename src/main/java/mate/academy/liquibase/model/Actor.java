@@ -1,9 +1,11 @@
 package mate.academy.liquibase.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -15,6 +17,10 @@ public class Actor implements Cloneable {
     private Long id;
     private String name;
     @ManyToOne
+    @JoinColumn(
+            name = "country_id",
+            foreignKey = @ForeignKey(name = "fk_actor_country")
+    )
     private Country country;
 
     public Actor() {
